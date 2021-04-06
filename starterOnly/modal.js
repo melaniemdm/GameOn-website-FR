@@ -82,23 +82,38 @@ function submitValid() {
 
     }
 // validation de nom
-    console.log("étape 1 :valider le nom") 
+console.log("étape 1 :valider le nom") 
+  
+
+   // storage et modification de couleur si error 
     var saisieNom = document.getElementById("last").value;
+   
     sessionStorage.setItem("saisieNom", saisieNom) 
     if (saisieNom == "" ||  saisieNom.length<= 2){
       errorSubmit = true;
       alert("Veuillez saisir votre nom")
-      
+ 
+     
+
     const inputNom  = document.querySelector("#last"); // devient rouge si ne rempli pas les conditions du formulaire
     inputNom.style.background = colorError
   
   }
   //validation de l'adresse e-mail
+  var email = document.getElementById("email");
+  email.addEventListener("keyup", function (event) {
+    if(email.validity.typeMismatch) {
+      email.setCustomValidity("Vous devez saisir un email valide");
+    } else {
+      email.setCustomValidity("");
+    }
+  });
+// storage et modification de couleur si error
   var saisieEmail = document.getElementById("email").value;
   sessionStorage.setItem("saisieEmail", saisieEmail)
    if(checkEmail(saisieEmail) == false){
     errorSubmit = true;
-    alert("Veuillez saisir votre email")
+  
     const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
     inputEmail.style.background = colorError
    }
