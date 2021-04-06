@@ -76,15 +76,24 @@ function submitValid() {
   if (saisiePrenom == "" ||  saisiePrenom.length<= 2){
     errorSubmit = true;
     alert("Veuillez saisir votre prénom")
-    
+   
+    // message d'error si non vide ou inf a 2
+    var elementPrenom = document.getElementById("first");
+
+    elementPrenom.oninvalid = function(event) {
+      event.target.setCustomValidity("");
+      if (!event.target.validity.valid) {
+        if (event.target.value.length < 2 ) {
+    event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+        } 
+      }
+    };
+
   const inputPrenom  = document.querySelector("#first"); // devient rouge si ne rempli pas les conditions du formulaire
   inputPrenom.style.background = colorError
 
     }
-// validation de nom
-console.log("étape 1 :valider le nom") 
-  
-
+ 
    // storage et modification de couleur si error 
     var saisieNom = document.getElementById("last").value;
    
@@ -93,6 +102,17 @@ console.log("étape 1 :valider le nom")
       errorSubmit = true;
       alert("Veuillez saisir votre nom")
  
+      // message d'error si non vide ou inf a 2
+      var elementNom = document.getElementById("last");
+
+      elementNom.oninvalid = function(event) {
+        event.target.setCustomValidity("");
+        if (!event.target.validity.valid) {
+          if (event.target.value.length < 2 ) {
+      event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+          } 
+        }
+      };
      
 
     const inputNom  = document.querySelector("#last"); // devient rouge si ne rempli pas les conditions du formulaire
