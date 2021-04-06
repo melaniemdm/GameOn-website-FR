@@ -12,7 +12,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
 //btn je m'inscrid
 const modalBtn = document.querySelectorAll(".modal-btn");
-//tous les elements du formulaire
+//tous les elements de classe .formData du formulaire
 const formData = document.querySelectorAll(".formData");
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanClose = document.querySelectorAll(".close"); 
