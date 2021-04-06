@@ -177,10 +177,15 @@ if (errorSubmit == false){ // pour effacer le formulaire si celui ci est correct
 
  //validation birthdate
  var elementBirthdate = document.querySelector("#birthdate");
- elementBirthdate.addEventListener("invalid", function () {
-    elementBirthdate.setCustomValidity("Vous devez entrer votre date de naissance.");
-   } );
-
+ 
+   elementBirthdate.oninvalid = function(event) {
+    event.target.setCustomValidity("");
+    if (!event.target.validity.valid) {
+      if (event.target.value.length == "" ) {
+  event.target.setCustomValidity("Vous devez entrer votre date de naissance.");
+      } 
+    }
+  };
 
 }
 //fonction de test d'email (regex = expression reguliere)
