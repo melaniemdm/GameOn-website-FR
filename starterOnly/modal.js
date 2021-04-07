@@ -93,8 +93,7 @@ function submitValid() {
   // conditions Prénom
   if (saisiePrenom == "" ||  saisiePrenom.length<= 2){
     errorSubmit = true;
-    alert("Veuillez saisir votre prénom")
-   
+       
     // Déclaration variable elementPrenom 
     var elementPrenom = document.getElementById("first");
 
@@ -207,7 +206,7 @@ if (choixVille == false){
 var checkConditions = document.querySelector("#checkbox1");
 if(checkConditions.checked == false){
   errorSubmit = true;
-  alert("Merci de cocher les conditions")
+  
 }
 
 
