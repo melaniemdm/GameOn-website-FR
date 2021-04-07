@@ -20,7 +20,9 @@ const spanClose = document.querySelectorAll(".close");
 // launch modal event  (charger l'evement modal au niveau du btn)
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour chaque btn contenu dans la class modal-btn on va lui ajouter un ecouteur d'evenement sur l'evenement click et lui demander de lancer la fonction launchModal lorsqu'un click est detecté
 
-// launch modal form (declaration fonction launchModal)
+//--------------------------------Fonction submitValid-----------------------------
+
+// Déclaration fonction launchModal
 function launchModal() {
   modalbg.style.display = "block"; // prend la class bgroung et modifit le style et plus particulierement le display en none dans le fichier css
   //recupere le storage
@@ -66,60 +68,85 @@ const submit = document.querySelector(".btn-submit"); // création de la constan
 
 submit.addEventListener("click", submitValid); // a l'evenement click lance la fonction submitValid
 
+
+//--------------------------------Fonction submitValid-----------------------------
+//Déclaration de la fonction submitValid
 function submitValid() {
-  sessionStorage.setItem("autosave", true) // Pour créer la session storage
+ // Pour créer la session storage
+  sessionStorage.setItem("autosave", true)
+  
+  
   let errorSubmit = false;
-  const colorError = "#fe142f"; //couleur de l'erreur
-  console.log("étape 1 :valider le prenom") 
+//couleur de l'erreur
+  const colorError = "#fe142f";
+
+  /*-----------------Déclaration de la variable saisiePrénom------------------*/
   var saisiePrenom = document.getElementById("first").value;
-  sessionStorage.setItem("saisiePrenom", saisiePrenom)      // permet de garder les éléments ecris par l'utilisateur
+
+  // permet de garder les éléments ecris par l'utilisateur
+  sessionStorage.setItem("saisiePrenom", saisiePrenom)    
+  
+  // conditions Prénom
   if (saisiePrenom == "" ||  saisiePrenom.length<= 2){
     errorSubmit = true;
     alert("Veuillez saisir votre prénom")
    
-    // message d'error si non vide ou inf a 2
+    // Déclaration variable elementPrenom 
     var elementPrenom = document.getElementById("first");
 
+    //Fonction
     elementPrenom.oninvalid = function(event) {
       event.target.setCustomValidity("");
+    // le ! permet d'inverser la condition  
       if (!event.target.validity.valid) {
+  //message d'error si non vide ou inf a 2      
         if (event.target.value.length < 2 ) {
     event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
         } 
       }
     };
-
-  const inputPrenom  = document.querySelector("#first"); // devient rouge si ne rempli pas les conditions du formulaire
+//Déclaration de la constante inputPrenom
+ // devient rouge si ne rempli pas les conditions du formulaire
+  const inputPrenom  = document.querySelector("#first");
   inputPrenom.style.background = colorError
-
     }
  
+
+   /*---------------Déclaration de la variable saisieNom--------------------------- */
+       var saisieNom = document.getElementById("last").value;
+
    // storage et modification de couleur si error 
-    var saisieNom = document.getElementById("last").value;
-   
     sessionStorage.setItem("saisieNom", saisieNom) 
+
+    //Conditions
     if (saisieNom == "" ||  saisieNom.length<= 2){
       errorSubmit = true;
       alert("Veuillez saisir votre nom")
  
-      // message d'error si non vide ou inf a 2
+     //Déclaration de la variable elementNom 
       var elementNom = document.getElementById("last");
 
+//Fonction
       elementNom.oninvalid = function(event) {
         event.target.setCustomValidity("");
         if (!event.target.validity.valid) {
+          // message d'error si non vide ou inf a 2
           if (event.target.value.length < 2 ) {
       event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
           } 
         }
       };
      
+//Déclaration de  la constante inputNom
+    const inputNom  = document.querySelector("#last"); 
 
-    const inputNom  = document.querySelector("#last"); // devient rouge si ne rempli pas les conditions du formulaire
+    // devient rouge si ne rempli pas les conditions du formulaire
     inputNom.style.background = colorError
   
   }
-  //validation de l'adresse e-mail
+
+  /*-----------------validation de l'adresse e-mail-------------------------------*/
+  //Décalration de la varaible email
   var email = document.getElementById("email");
   email.addEventListener("keyup", function (event) {
     if(email.validity.typeMismatch) {
@@ -137,9 +164,13 @@ function submitValid() {
     const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
     inputEmail.style.background = colorError
    }
-// validation du nombre de concours
+
+/* -------------------validation du nombre de concours---------------------------*/
+//Déclaration de la varaible saisieConcours
 var saisieConcours = document.getElementById("quantity").value;
+//storage
 sessionStorage.setItem("saisieConcours", saisieConcours)
+//condition
 if(isNaN(saisieConcours)){
   errorSubmit = true;
   alert(saisieConcours + " n'est pas un nombre" )
@@ -171,13 +202,15 @@ if(checkConditions.checked == false){
   errorSubmit = true;
   alert("Merci de cocher les conditions")
 }
-if (errorSubmit == false){ // pour effacer le formulaire si celui ci est correct
+// Effacer le formulaire si celui ci est correct
+if (errorSubmit == false){ 
   sessionStorage.clear()
 }
 
- //validation birthdate
+ /*------------------------validation birthdate--------------------------------*/
+ //Déclaration de la variable elementBirthdate
  var elementBirthdate = document.querySelector("#birthdate");
- 
+ //fonction
    elementBirthdate.oninvalid = function(event) {
     event.target.setCustomValidity("");
     if (!event.target.validity.valid) {
@@ -188,7 +221,9 @@ if (errorSubmit == false){ // pour effacer le formulaire si celui ci est correct
   };
 
 }
-//fonction de test d'email (regex = expression reguliere)
+
+
+/*----------fonction de test d'email (regex = expression reguliere)-----------------*/
 function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
