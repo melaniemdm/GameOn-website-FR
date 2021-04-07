@@ -235,7 +235,7 @@ input[data-error]::after {
 .checkbox-label,
 .checkbox2-label {
   position: relative;
-  margin-left: 36px;
+  margin-left: 26px;
   font-size: 12px;
   font-weight: normal;
 }
@@ -271,7 +271,7 @@ input[data-error]::after {
 }
 .checkbox-input {
   /* display: none; */
-  transform: translateX(30px);
+  transform: translateX(20px);
   opacity: 0;
 }
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
