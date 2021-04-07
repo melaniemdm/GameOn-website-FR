@@ -178,7 +178,7 @@ if(isNaN(saisieConcours)){
   errorSubmit = true;
   alert(saisieConcours + " n'est pas un nombre" )
 }
-//validation du check sur les villes
+/*----------------------------------validation du check sur les villes-----------*/
 var choixVille = false;
 
 //storage du choix des villes
