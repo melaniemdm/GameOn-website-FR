@@ -206,7 +206,9 @@ if (choixVille == false){
 var checkConditions = document.querySelector("#checkbox1");
 if(checkConditions.checked == false){
   errorSubmit = true;
-  
+   checkConditions.setCustomValidity("Vous devez vérifier que vous acceptez les termes et conditions.");
+}else{
+  checkConditions.setCustomValidity("");
 }
 
 
