@@ -124,8 +124,7 @@ function submitValid() {
     //Conditions
     if (saisieNom == "" ||  saisieNom.length<= 2){
       errorSubmit = true;
-      alert("Veuillez saisir votre nom")
- 
+       
      //Déclaration de la variable elementNom 
       var elementNom = document.getElementById("last");
 
@@ -176,7 +175,7 @@ sessionStorage.setItem("saisieConcours", saisieConcours)
 //condition
 if(isNaN(saisieConcours)){
   errorSubmit = true;
-  alert(saisieConcours + " n'est pas un nombre" )
+  
 }
 /*----------------------------------validation du check sur les villes-----------*/
 var choixVille = false;
@@ -192,7 +191,7 @@ sessionStorage.setItem("saisieVille6", document.querySelector("#location6").chec
 //Déclaration de la variable checkVille
 var checkVille = document.querySelectorAll(".checkbox-location");
 checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
-alert(choixVille)
+
 if (choixVille == false){
   errorSubmit = true;
   //récupere la classe de New york pour afficher le message d'erreur
