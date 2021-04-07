@@ -25,13 +25,16 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour c
 // Déclaration fonction launchModal
 function launchModal() {
   modalbg.style.display = "block"; // prend la class bgroung et modifit le style et plus particulierement le display en none dans le fichier css
-  //recupere le storage
+  
+  /*---------------------Autosave storage-----------------------------------------*/
 
-  if(sessionStorage.getItem("autosave")){   // test l'existance d'une sessionb storage
+  // test l'existance d'une session storage
+  if(sessionStorage.getItem("autosave")){   
 let getPrenom = document.querySelector("#first").value = sessionStorage.getItem("saisiePrenom");
 let getNom = document.querySelector("#last").value = sessionStorage.getItem("saisieNom");
 let getEmail = document.querySelector("#email").value = sessionStorage.getItem("saisieEmail");
 let getConcours = document.querySelector("#quantity").value = sessionStorage.getItem("saisieConcours");
+let getBirthdate = document.querySelector("#birthdate").value = sessionStorage.getItem("saisieBirthdate");
 
 let getSaisieVille1 = document.querySelector("#location1").value = sessionStorage.getItem("saisieVille1");
 let getSaisieVille2 = document.querySelector("#location2").value = sessionStorage.getItem("saisieVille2");
@@ -64,6 +67,7 @@ spanClose.forEach((btn) => btn.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 }
+
 const submit = document.querySelector(".btn-submit"); // création de la constante submit (Todo 2)
 
 submit.addEventListener("click", submitValid); // a l'evenement click lance la fonction submitValid
@@ -224,7 +228,10 @@ if (errorSubmit == false){
       } 
     }
   };
-
+//Déclaration de la varaible saisieBirthdate
+var saisieBirthdate = document.getElementById("birthdate").value;
+//storage
+sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
 }
 
 
