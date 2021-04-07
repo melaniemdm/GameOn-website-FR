@@ -146,7 +146,7 @@ function submitValid() {
   }
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
-  //Décalration de la varaible email
+  //Déclaration de la varaible email
   var email = document.getElementById("email");
   email.addEventListener("keyup", function (event) {
     if(email.validity.typeMismatch) {
@@ -191,17 +191,22 @@ checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 alert(choixVille)
 if (choixVille == false){
   errorSubmit = true;
-  const selectVille  = document.querySelector(".selectVille");  
-  selectVille.style.border = colorError + " 2px solid";
-  alert("Veuillez saisir une ville")
-}
 
-// vérification si les conditions sont cochées
+  //Déclaration constante selectVille
+  const selectVille  = document.querySelector(".selectVille");  
+  //Modification du style si error
+  selectVille.style.border = colorError + " 2px solid";
+  }
+
+/*-----------------vérification si les conditions sont cochées-------------------*/
+//Déclaration de la varaible chekconditions
 var checkConditions = document.querySelector("#checkbox1");
 if(checkConditions.checked == false){
   errorSubmit = true;
   alert("Merci de cocher les conditions")
 }
+
+
 // Effacer le formulaire si celui ci est correct
 if (errorSubmit == false){ 
   sessionStorage.clear()
