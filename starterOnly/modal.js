@@ -36,12 +36,12 @@ let getEmail = document.querySelector("#email").value = sessionStorage.getItem("
 let getConcours = document.querySelector("#quantity").value = sessionStorage.getItem("saisieConcours");
 let getBirthdate = document.querySelector("#birthdate").value = sessionStorage.getItem("saisieBirthdate");
 
-let getSaisieVille1 = document.querySelector("#location1").value = sessionStorage.getItem("saisieVille1");
-let getSaisieVille2 = document.querySelector("#location2").value = sessionStorage.getItem("saisieVille2");
-let getSaisieVille3 = document.querySelector("#location3").value = sessionStorage.getItem("saisieVille3");
-let getSaisieVille4 = document.querySelector("#location4").value = sessionStorage.getItem("saisieVille4");
-let getSaisieVille5 = document.querySelector("#location5").value = sessionStorage.getItem("saisieVille5");
-let getSaisieVille6 = document.querySelector("#location6").value = sessionStorage.getItem("saisieVille6");
+let getSaisieVille1 = document.querySelector("#location1").checked = sessionStorage.getItem("saisieVille1");
+let getSaisieVille2 = document.querySelector("#location2").checked = sessionStorage.getItem("saisieVille2");
+let getSaisieVille3 = document.querySelector("#location3").checked = sessionStorage.getItem("saisieVille3");
+let getSaisieVille4 = document.querySelector("#location4").checked = sessionStorage.getItem("saisieVille4");
+let getSaisieVille5 = document.querySelector("#location5").checked = sessionStorage.getItem("saisieVille5");
+let getSaisieVille6 = document.querySelector("#location6").checked = sessionStorage.getItem("saisieVille6");
 
 const colorError = "#fe142f"; //couleur de l'erreur
 
@@ -189,17 +189,26 @@ sessionStorage.setItem("saisieVille4", document.querySelector("#location4").chec
 sessionStorage.setItem("saisieVille5", document.querySelector("#location5").checked)
 sessionStorage.setItem("saisieVille6", document.querySelector("#location6").checked)
 
+//Déclaration de la variable checkVille
 var checkVille = document.querySelectorAll(".checkbox-location");
 checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 alert(choixVille)
 if (choixVille == false){
   errorSubmit = true;
-
+  //récupere la classe de New york pour afficher le message d'erreur
+  checkbox-input.setCustomValidity("Vous devez choisir une option.");
   //Déclaration constante selectVille
   const selectVille  = document.querySelector(".selectVille");  
   //Modification du style si error
   selectVille.style.border = colorError + " 2px solid";
-  }
+  }else{
+   
+    //Déclaration de la variable elementVille
+    var elementVille = document.querySelector(".checkbox-input")
+     
+    elementVille.removeAttribute('required');
+   
+      }
 
 /*-----------------vérification si les conditions sont cochées-------------------*/
 //Déclaration de la varaible chekconditions
@@ -210,7 +219,6 @@ if(checkConditions.checked == false){
 }else{
   checkConditions.setCustomValidity("");
 }
-
 
 // Effacer le formulaire si celui ci est correct
 if (errorSubmit == false){ 
