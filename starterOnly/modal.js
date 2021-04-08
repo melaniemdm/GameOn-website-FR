@@ -218,21 +218,20 @@ if(checkConditions.checked == false){
 }else{
   checkConditions.setCustomValidity("");
 }
-
-// Effacer le formulaire si celui ci est correct
-if (errorSubmit == false){ 
-  sessionStorage.clear()
-}
-
  /*------------------------validation birthdate--------------------------------*/
  //Déclaration de la variable elementBirthdate
  var elementBirthdate = document.querySelector("#birthdate");
+ //condition
+ if(elementBirthdate.value.length == ""){
+  errorSubmit = true; 
+ }
  //fonction
    elementBirthdate.oninvalid = function(event) {
     event.target.setCustomValidity("");
     if (!event.target.validity.valid) {
       if (event.target.value.length == "" ) {
   event.target.setCustomValidity("Vous devez entrer votre date de naissance.");
+  
       } 
     }
   };
@@ -240,6 +239,15 @@ if (errorSubmit == false){
 var saisieBirthdate = document.getElementById("birthdate").value;
 //storage
 sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
+
+
+// Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
+if (errorSubmit == false){ 
+  sessionStorage.clear()
+  alert("Merci ! Votre réservation a été reçue.")
+}
+
+
 }
 
 
