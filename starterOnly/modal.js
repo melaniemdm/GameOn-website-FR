@@ -16,7 +16,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanClose = document.querySelectorAll(".close"); 
-
+const spanCloseFin = document.querySelectorAll(".closeFin"); 
 // launch modal event  (charger l'evement modal au niveau du btn)
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour chaque btn contenu dans la class modal-btn on va lui ajouter un ecouteur d'evenement sur l'evenement click et lui demander de lancer la fonction launchModal lorsqu'un click est detecté
 
@@ -229,15 +229,13 @@ if(checkConditions.checked == false){
 }else{
   checkConditions.setCustomValidity("");
 }
-
-// Effacer le formulaire si celui ci est correct
-if (errorSubmit == false){ 
-  sessionStorage.clear()
-}
-
  /*------------------------validation birthdate--------------------------------*/
  //Déclaration de la variable elementBirthdate
  var elementBirthdate = document.querySelector("#birthdate");
+ //condition
+ if(elementBirthdate.value.length == ""){
+  errorSubmit = true; 
+ }
  //fonction
    elementBirthdate.oninvalid = function(event) {
     event.target.setCustomValidity("");
@@ -249,6 +247,7 @@ if (errorSubmit == false){
   inputBirthdate.style.border = colorError + " 2px solid";
   const errorBirthdate =  document.querySelector("#errorBirthdate");
   errorBirthdate.style.visibility = "visible";
+  
       } 
     }
   };
@@ -256,6 +255,13 @@ if (errorSubmit == false){
 var saisieBirthdate = document.getElementById("birthdate").value;
 //storage
 sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
+
+
+// Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
+if (errorSubmit == false){ 
+  sessionStorage.clear()
+  launchModalFin()
+}
 
 
 }
@@ -275,3 +281,17 @@ forms.forEach((form) => {
         //Possibly implement your own here.
     }, true);
 });
+
+function launchModalFin(){
+const modalbgFin = document.querySelector("#bgroundFin")
+modalbgFin.style.display = "block"; 
+
+}
+// close modal event
+spanCloseFin.forEach((btn) => btn.addEventListener("click", closeModalFin));
+
+// close modal form
+function closeModalFin() {
+  const modalbgFin = document.querySelector("#bgroundFin")
+  modalbgFin.style.display = "none";
+}

@@ -537,3 +537,31 @@ footer {
 #errorConditions{
   transform: translateX(20px) translateY(-5px);
 }
+
+.contentFin{
+  height: 753px ;
+  width: 500px;
+  display: flex;
+ 
+}
+#btnClose{
+  height: 50px ;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  }
+  .modalFinBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #bgroundFin{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 1;
+  }
