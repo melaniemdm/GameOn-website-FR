@@ -16,7 +16,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanClose = document.querySelectorAll(".close"); 
-
+const spanCloseFin = document.querySelectorAll(".closeFin"); 
 // launch modal event  (charger l'evement modal au niveau du btn)
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour chaque btn contenu dans la class modal-btn on va lui ajouter un ecouteur d'evenement sur l'evenement click et lui demander de lancer la fonction launchModal lorsqu'un click est detecté
 
@@ -261,5 +261,12 @@ function launchModalFin(){
 const modalbgFin = document.querySelector("#bgroundFin")
 modalbgFin.style.display = "block"; 
 
+}
+// close modal event
+spanCloseFin.forEach((btn) => btn.addEventListener("click", closeModalFin));
 
+// close modal form
+function closeModalFin() {
+  const modalbgFin = document.querySelector("#bgroundFin")
+  modalbgFin.style.display = "none";
 }
