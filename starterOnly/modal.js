@@ -244,7 +244,7 @@ sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
 // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
 if (errorSubmit == false){ 
   sessionStorage.clear()
-  alert("Merci ! Votre réservation a été reçue.")
+  launchModalFin()
 }
 
 
@@ -255,4 +255,11 @@ if (errorSubmit == false){
 function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+function launchModalFin(){
+const modalbgFin = document.querySelector("#bgroundFin")
+modalbgFin.style.display = "block"; 
+
+
 }
