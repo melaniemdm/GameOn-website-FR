@@ -111,7 +111,7 @@ function submitValid() {
 //Déclaration de la constante inputPrenom
  // devient rouge si ne rempli pas les conditions du formulaire
   const inputPrenom  = document.querySelector("#first");
-  inputPrenom.style.background = colorError
+  inputPrenom.style.border = colorError + " 2px solid";
     }
  
 
@@ -143,7 +143,7 @@ function submitValid() {
     const inputNom  = document.querySelector("#last"); 
 
     // devient rouge si ne rempli pas les conditions du formulaire
-    inputNom.style.background = colorError
+    inputNom.style.border = colorError + " 2px solid";
   
   }
 
@@ -164,7 +164,7 @@ function submitValid() {
     errorSubmit = true;
   
     const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
-    inputEmail.style.background = colorError
+    inputEmail.style.border = colorError + " 2px solid";
    }
 
 /* -------------------validation du nombre de concours---------------------------*/
@@ -195,9 +195,11 @@ checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 
 if (choixVille == false){
   errorSubmit = true;
+  var elementVille = document.querySelector(".checkbox-input")
   //récupere la classe de New york pour afficher le message d'erreur
-  checkbox-input.setCustomValidity("Vous devez choisir une option.");
+  elementVille.setCustomValidity("Vous devez choisir une option.");
   //Déclaration constante selectVille
+  
   const selectVille  = document.querySelector(".selectVille");  
   //Modification du style si error
   selectVille.style.border = colorError + " 2px solid";
@@ -234,6 +236,10 @@ if (errorSubmit == false){
     if (!event.target.validity.valid) {
       if (event.target.value.length == "" ) {
   event.target.setCustomValidity("Vous devez entrer votre date de naissance.");
+
+  const inputBirthdate  = document.querySelector("#birthdate");
+  inputBirthdate.style.border = colorError + " 2px solid";
+
       } 
     }
   };
@@ -241,6 +247,8 @@ if (errorSubmit == false){
 var saisieBirthdate = document.getElementById("birthdate").value;
 //storage
 sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
+
+
 }
 
 
