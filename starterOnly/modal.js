@@ -190,6 +190,7 @@ sessionStorage.setItem("saisieVille6", document.querySelector("#location6").chec
 
 //Déclaration de la variable checkVille
 var checkVille = document.querySelectorAll(".checkbox-location");
+//boucle - regarde un par un si ville cochées
 checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 
 if (choixVille == false){
