@@ -529,3 +529,22 @@ footer {
   }
 }
 
+.contentFin{
+  height: 753px ;
+  width: 500px;
+  display: flex;
+  
+}
+#close{
+  height: 50px ;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  }
+  .modalFinBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
