@@ -533,7 +533,7 @@ footer {
   height: 753px ;
   width: 500px;
   display: flex;
-  
+ 
 }
 #btnClose{
   height: 50px ;
@@ -547,4 +547,12 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  #bgroundFin{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    z-index: 1;
   }
