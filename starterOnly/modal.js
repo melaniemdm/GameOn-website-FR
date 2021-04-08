@@ -112,6 +112,8 @@ function submitValid() {
  // devient rouge si ne rempli pas les conditions du formulaire
   const inputPrenom  = document.querySelector("#first");
   inputPrenom.style.border = colorError + " 2px solid";
+  const errorPrenom =  document.querySelector("#errorPrenom");
+  errorPrenom.style.visibility = "visible";
     }
  
 
@@ -144,7 +146,8 @@ function submitValid() {
 
     // devient rouge si ne rempli pas les conditions du formulaire
     inputNom.style.border = colorError + " 2px solid";
-  
+    const errorNom =  document.querySelector("#errorNom");
+    errorNom.style.visibility = "visible";
   }
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
@@ -165,6 +168,7 @@ function submitValid() {
   
     const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
     inputEmail.style.border = colorError + " 2px solid";
+    
    }
 
 /* -------------------validation du nombre de concours---------------------------*/
@@ -203,6 +207,8 @@ if (choixVille == false){
   const selectVille  = document.querySelector(".selectVille");  
   //Modification du style si error
   selectVille.style.border = colorError + " 2px solid";
+  const errorVille =  document.querySelector("#errorVille");
+  errorVille.style.visibility = "visible";
   }else{
    
     //Déclaration de la variable elementVille
@@ -218,6 +224,8 @@ var checkConditions = document.querySelector("#checkbox1");
 if(checkConditions.checked == false){
   errorSubmit = true;
    checkConditions.setCustomValidity("Vous devez vérifier que vous acceptez les termes et conditions.");
+   const errorConditions =  document.querySelector("#errorConditions");
+  errorConditions.style.visibility = "visible";
 }else{
   checkConditions.setCustomValidity("");
 }
@@ -239,7 +247,8 @@ if (errorSubmit == false){
 
   const inputBirthdate  = document.querySelector("#birthdate");
   inputBirthdate.style.border = colorError + " 2px solid";
-
+  const errorBirthdate =  document.querySelector("#errorBirthdate");
+  errorBirthdate.style.visibility = "visible";
       } 
     }
   };
@@ -257,3 +266,12 @@ function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
+// supprime les bulle d'error html5
+var forms = document.querySelectorAll("#formulaire");
+forms.forEach((form) => {
+    
+    form.addEventListener('invalid', function(e) {
+        e.preventDefault();
+        //Possibly implement your own here.
+    }, true);
+});

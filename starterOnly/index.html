@@ -61,7 +61,9 @@
               action="index.html"
               method="get"
               onsubmit="//return submitValid();"
+              id="formulaire"
             >
+            
               <div
                 class="formData">
                 <label for="first">Prénom</label><br> <!--liaison entre le label et l'input-->
@@ -71,8 +73,9 @@
                   id="first"
                   name="first"
                   minlength="2"
-                  required
+                   required
                 /><br>
+                <div class="textError" id="errorPrenom"> Veuillez entrer 2 caractères ou plus pour le champ du Prénom. </div>
               </div>
               <div
                 class="formData">
@@ -85,6 +88,7 @@
                   minlength="2"
                   required
                 /><br><!--ajout  minlenghth pour color red d'error-->
+                <div class="textError" id="errorNom"> Veuillez entrer 2 caractères ou plus pour le champ du nom. </div>
               </div>
               <div
                 class="formData">
@@ -106,6 +110,7 @@
                   name="birthdate"
                   required
                 /><br>
+                <div class="textError" id="errorBirthdate"> Vous devez entrer votre date de naissance. </div>
               </div>
               <div
                 class="formData ">
@@ -188,7 +193,7 @@
                   Portland</label
                 >
               </div>
-
+              <div class="textError" id="errorVilles"> Vous devez choisir une option. </div>
               <div
                 class="formData">
                 <input
@@ -202,6 +207,8 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <div class="textError" id="errorConditions"> Vous devez vérifier que vous acceptez les termes et conditions. </div>
+
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>

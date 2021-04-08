@@ -528,4 +528,12 @@ footer {
     opacity: 1;
   }
 }
-
+.textError{
+  color:#fe142f;
+  font-size: 11px;
+  visibility: hidden;
+  height: 5px;
+}
+#errorConditions{
+  transform: translateX(20px) translateY(-5px);
+}
