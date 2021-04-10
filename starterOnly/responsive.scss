@@ -1,0 +1,20 @@
+/*création des breakpoints*/
+$medium:768px !default; /*vue tablette*/
+$large:1024px !default;/*vue desktop*/
+
+/*création des variables media queries utilisant les breakpoints*/
+$medium-up: "only screen and (min-width: #{$medium})";
+$medium-down: "only screen and (max-width: #{$medium})";
+$large-up: "only screen and (min-width: #{$large})";
+$large-down: "only screen and (max-width: #{$large})";
+
+//création variables
+$primarycolor : #e54858;
+
+
+// Version responsive mobile et tablette
+@media #{$medium-down} {
+    a.icon {
+      color: $primarycolor;
+    }
+  }

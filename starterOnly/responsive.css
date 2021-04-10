@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*création des breakpoints*/
+/*vue tablette*/
+/*vue desktop*/
+/*création des variables media queries utilisant les breakpoints*/
+@media only screen and (max-width: 768px) {
+  a.icon {
+    color: #e54858;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
