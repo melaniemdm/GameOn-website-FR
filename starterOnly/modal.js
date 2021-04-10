@@ -295,3 +295,107 @@ function closeModalFin() {
   const modalbgFin = document.querySelector("#bgroundFin")
   modalbgFin.style.display = "none";
 }
+/*--------------------------------------------------------- test error Prénom -------------------------*/
+const inputPrenom = document.querySelector("#first")
+inputPrenom.addEventListener("keyup",  function(e){
+  testPrenom(e)
+
+})
+function testPrenom(event){
+  
+  var value  = event.target.value
+  var elementHtml = event.target
+  if (value == "" ||  value.length<= 2){
+    elementHtml.style.border = "red 2px solid"
+  }else {
+    elementHtml.style.border = "red 0px solid"
+    supprimeError("#errorPrenom")
+  }
+  }
+
+/*--------------------------------------------------------- test error Nom -------------------------*/
+const inputNom = document.querySelector("#last")
+inputNom.addEventListener("keyup",  function(e){
+  testNom(e)
+ 
+})
+
+function testNom(event){
+  
+  var value  = event.target.value
+  var elementHtml = event.target
+  if (value == "" ||  value.length<= 2){
+    elementHtml.style.border = "red 2px solid"
+  }else {
+    elementHtml.style.border = "red 0px solid"
+    supprimeError("#errorNom")
+  }
+  }
+// ----------------------error du mail------------
+  const inputMail = document.querySelector("#email")
+  inputMail.addEventListener("keyup",  function(e){
+    testMail(e)
+  
+  })
+  function testMail(event){
+  
+    var value  = event.target.value
+    var elementHtml = event.target
+    if(checkEmail(value) == false){
+      elementHtml.style.border = "red 2px solid"
+    }else {
+      elementHtml.style.border = "red 0px solid"
+    }
+    }
+    // ----------------------error date de naissance------------
+    const inputBirthdate = document.querySelector("#birthdate")
+    inputBirthdate.addEventListener("change",  function(e){
+      testBirthdate(e)
+    
+    })
+
+    function testBirthdate(event){
+  
+      var value  = event.target.value
+      var elementHtml = event.target
+      if (value == "" ||  value.length<= 2){
+        elementHtml.style.border = "red 2px solid"
+      }else {
+        elementHtml.style.border = "red 0px solid"
+        supprimeError("#errorBirthdate")
+      }
+      }
+// ----------------------retire error villes au click------------
+
+const inputVilles = document.querySelectorAll(".checkbox-location")
+inputVilles.forEach((inputVille) => inputVille.addEventListener("click", function(e){
+    testVilles(e)
+}
+))
+
+function testVilles(event){
+  var choixVille = false;
+
+  var checkVille = document.querySelectorAll(".checkbox-location");
+//boucle - regarde un par un si ville cochées
+checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
+
+if (choixVille == false){
+  
+  }else{
+       //Déclaration de la variable elementVille
+    var elementVille = document.querySelector(".selectVille")
+    elementVille.style.border = "red 0px solid"
+    
+      }
+    }
+// ----------------------retire error conditions------------
+
+const inputConditions = document.querySelector("#checkbox1")
+    inputConditions.addEventListener("click",  function(e){
+      supprimeError("#errorConditions")
+        })
+function supprimeError (errorId){
+const elementError = document.querySelector(errorId)
+elementError.style.visibility = "hidden";
+}
