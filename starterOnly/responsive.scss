@@ -12,9 +12,96 @@ $large-down: "only screen and (max-width: #{$large})";
 $primarycolor : #e54858;
 
 
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------page d'accueil----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+
+// -------------------------------header-----------//
+
 // Version responsive mobile et tablette
 @media #{$medium-down} {
     a.icon {
       color: $primarycolor;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
+  #myTopnav{
+        padding-top: 15px;
+      display: flex;
+     justify-content: space-between;
+      }
+      
+
+  .main-navbar a{
+    font-size: 20px;
+  }       
+.header-logo{
+img{
+height: 20px ;
+padding-left: 15px;
+}
+}
+.hero-img{
+  img{
+    margin-top: 20px ;
   }
+}
+main{
+  margin-bottom: 0;
+}
+}
+// --------------------------------MAIN----------------------------//
+
+@media #{$medium-down} {
+.hero-headline{
+ font-size: 32px;
+ font-weight: bold; 
+ padding-left: 0;
+}
+.hero-section{
+  margin-bottom: 0;
+}
+.hero-text{
+  font-size: 10px;
+  margin-top: 25px;
+  margin-right: 10px;
+ 
+}
+.btn-signup{
+  font-size: 10px;
+}
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+padding-left: 2px;
+padding-bottom: 5px;
+}
+}
+
+//-------------------------------- FOOTER---------------------------------//
+@media #{$medium-down} {
+.copyrights{
+  font-size: 8px;
+  margin-top:15px ;
+  margin-bottom: 10px;
+}
+}
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media #{$medium-down} {
+.messageFin{
+font-size: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.contentFin{ // modal du message de fin
+ height: 650px;
+width: 410px;
+margin-left: -28px;
+margin-top: 50px;
+font-weight: lighter
+}
+}

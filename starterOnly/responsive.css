@@ -3,9 +3,100 @@
 /*vue tablette*/
 /*vue desktop*/
 /*création des variables media queries utilisant les breakpoints*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------page d'accueil----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
   a.icon {
     color: #e54858;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  #myTopnav {
+    padding-top: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .main-navbar a {
+    font-size: 20px;
+  }
+  .header-logo img {
+    height: 20px;
+    padding-left: 15px;
+  }
+  .hero-img img {
+    margin-top: 20px;
+  }
+  main {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-headline {
+    font-size: 32px;
+    font-weight: bold;
+    padding-left: 0;
+  }
+  .hero-section {
+    margin-bottom: 0;
+  }
+  .hero-text {
+    font-size: 10px;
+    margin-top: 25px;
+    margin-right: 10px;
+  }
+  .btn-signup {
+    font-size: 10px;
+  }
+  .hero-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .copyrights {
+    font-size: 8px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+  .messageFin {
+    font-size: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .contentFin {
+    height: 650px;
+    width: 410px;
+    margin-left: -28px;
+    margin-top: 50px;
+    font-weight: lighter;
   }
 }
 /*# sourceMappingURL=responsive.css.map */
