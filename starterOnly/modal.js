@@ -6,8 +6,13 @@ function editNav() {
     x.className = "topnav";
   }
 }
+/*-----------------------------------------------------------------------------------------------------------*/
+//--------------------------- Element du DOM Elements--------------------------------------------------------//
+/*-----------------------------------------------------------------------------------------------------------*/
 
-// Element du DOM Elements
+
+
+
 //l'ensemble du formulaire (la page du formulaire)
 const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
 //btn je m'inscrid
@@ -20,9 +25,10 @@ const spanCloseFin = document.querySelectorAll(".closeFin");
 // launch modal event  (charger l'evement modal au niveau du btn)
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour chaque btn contenu dans la class modal-btn on va lui ajouter un ecouteur d'evenement sur l'evenement click et lui demander de lancer la fonction launchModal lorsqu'un click est detecté
 
-//--------------------------------Fonction submitValid-----------------------------
 
-// Déclaration fonction launchModal
+/*-----------------------------------------------------------------------------------------------------------*/
+//------------------------------------------- Déclaration fonction launchModal-------------------------------//
+/*-----------------------------------------------------------------------------------------------------------*/
 function launchModal() {
   modalbg.style.display = "block"; // prend la class bgroung et modifit le style et plus particulierement le display en none dans le fichier css
   
@@ -44,11 +50,6 @@ let getSaisieVille5 = document.querySelector("#location5").checked = sessionStor
 let getSaisieVille6 = document.querySelector("#location6").checked = sessionStorage.getItem("saisieVille6");
 
 const colorError = "#fe142f"; //couleur de l'erreur
-
-if(checkEmail(getEmail) == false){ // garder l'erreur de l'email au re-chargement
-  const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
-  inputEmail.style.background = colorError
- }
 
  var choixVille = false;
 var checkVille = document.querySelectorAll(".checkbox-location");
@@ -72,8 +73,9 @@ const submit = document.querySelector(".btn-submit"); // création de la constan
 
 submit.addEventListener("click", submitValid); // a l'evenement click lance la fonction submitValid
 
-
-//--------------------------------Fonction submitValid-----------------------------
+/*-----------------------------------------------------------------------------------------------------------*/
+//--------------------------------Fonction submitValid------------------------------------------------------//
+/*-----------------------------------------------------------------------------------------------------------*/
 //Déclaration de la fonction submitValid
 function submitValid() {
  // Pour créer la session storage
@@ -97,23 +99,6 @@ function submitValid() {
     // Déclaration variable elementPrenom 
     var elementPrenom = document.getElementById("first");
 
-    //Fonction
-    elementPrenom.oninvalid = function(event) {
-      event.target.setCustomValidity("");
-    // le ! permet d'inverser la condition  
-      if (!event.target.validity.valid) {
-  //message d'error si non vide ou inf a 2      
-        if (event.target.value.length < 2 ) {
-    event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
-        } 
-      }
-    };
-//Déclaration de la constante inputPrenom
- // devient rouge si ne rempli pas les conditions du formulaire
-  const inputPrenom  = document.querySelector("#first");
-  inputPrenom.style.border = colorError + " 2px solid";
-  const errorPrenom =  document.querySelector("#errorPrenom");
-  errorPrenom.style.visibility = "visible";
     }
  
 
@@ -127,48 +112,17 @@ function submitValid() {
     if (saisieNom == "" ||  saisieNom.length<= 2){
       errorSubmit = true;
        
-     //Déclaration de la variable elementNom 
-      var elementNom = document.getElementById("last");
-
-//Fonction
-      elementNom.oninvalid = function(event) {
-        event.target.setCustomValidity("");
-        if (!event.target.validity.valid) {
-          // message d'error si non vide ou inf a 2
-          if (event.target.value.length < 2 ) {
-      event.target.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
-          } 
-        }
-      };
-     
-//Déclaration de  la constante inputNom
-    const inputNom  = document.querySelector("#last"); 
-
-    // devient rouge si ne rempli pas les conditions du formulaire
-    inputNom.style.border = colorError + " 2px solid";
-    const errorNom =  document.querySelector("#errorNom");
-    errorNom.style.visibility = "visible";
+          
   }
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
-  //Déclaration de la varaible email
-  var email = document.getElementById("email");
-  email.addEventListener("keyup", function (event) {
-    if(email.validity.typeMismatch) {
-      email.setCustomValidity("Vous devez saisir un email valide");
-    } else {
-      email.setCustomValidity("");
-    }
-  });
+  
 // storage et modification de couleur si error
   var saisieEmail = document.getElementById("email").value;
   sessionStorage.setItem("saisieEmail", saisieEmail)
    if(checkEmail(saisieEmail) == false){
     errorSubmit = true;
-  
-    const inputEmail  = document.querySelector("#email"); // devient rouge si ne rempli pas les conditions du formulaire
-    inputEmail.style.border = colorError + " 2px solid";
-    
+     
    }
 
 /* -------------------validation du nombre de concours---------------------------*/
@@ -198,37 +152,17 @@ var checkVille = document.querySelectorAll(".checkbox-location");
 checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 
 if (choixVille == false){
+  testVilles("")
   errorSubmit = true;
-  var elementVille = document.querySelector(".checkbox-input")
-  //récupere la classe de New york pour afficher le message d'erreur
-  elementVille.setCustomValidity("Vous devez choisir une option.");
-  //Déclaration constante selectVille
-  
-  const selectVille  = document.querySelector(".selectVille");  
-  //Modification du style si error
-  selectVille.style.border = colorError + " 2px solid";
-  const errorVille =  document.querySelector("#errorVille");
-  errorVille.style.visibility = "visible";
-  }else{
-   
-    //Déclaration de la variable elementVille
+    }else{
+       //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".checkbox-input")
      
     elementVille.removeAttribute('required');
    
       }
 
-/*-----------------vérification si les conditions sont cochées-------------------*/
-//Déclaration de la varaible chekconditions
-var checkConditions = document.querySelector("#checkbox1");
-if(checkConditions.checked == false){
-  errorSubmit = true;
-   checkConditions.setCustomValidity("Vous devez vérifier que vous acceptez les termes et conditions.");
-   const errorConditions =  document.querySelector("#errorConditions");
-  errorConditions.style.visibility = "visible";
-}else{
-  checkConditions.setCustomValidity("");
-}
+
  /*------------------------validation birthdate--------------------------------*/
  //Déclaration de la variable elementBirthdate
  var elementBirthdate = document.querySelector("#birthdate");
@@ -295,7 +229,14 @@ function closeModalFin() {
   const modalbgFin = document.querySelector("#bgroundFin")
   modalbgFin.style.display = "none";
 }
-/*--------------------------------------------------------- test error Prénom -------------------------*/
+
+
+/*-----------------------------------------------------------------------------------------------------------*/
+//--------------------------------------------------------- Gestion des errors -------------------------------//
+/*-----------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------- text et color error Prénom-------------------*/ 
+
 const inputPrenom = document.querySelector("#first")
 inputPrenom.addEventListener("keyup",  function(e){
   testPrenom(e)
@@ -307,13 +248,17 @@ function testPrenom(event){
   var elementHtml = event.target
   if (value == "" ||  value.length<= 2){
     elementHtml.style.border = "red 2px solid"
+    
+  const errorPrenom =  document.querySelector("#errorPrenom");
+  errorPrenom.style.visibility = "visible";
   }else {
     elementHtml.style.border = "red 0px solid"
     supprimeError("#errorPrenom")
   }
+
   }
 
-/*--------------------------------------------------------- test error Nom -------------------------*/
+/*---------------------------------------------------------text et color error Nom -------------------------*/
 const inputNom = document.querySelector("#last")
 inputNom.addEventListener("keyup",  function(e){
   testNom(e)
@@ -326,6 +271,8 @@ function testNom(event){
   var elementHtml = event.target
   if (value == "" ||  value.length<= 2){
     elementHtml.style.border = "red 2px solid"
+    const errorNom =  document.querySelector("#errorNom");
+    errorNom.style.visibility = "visible";
   }else {
     elementHtml.style.border = "red 0px solid"
     supprimeError("#errorNom")
@@ -343,8 +290,12 @@ function testNom(event){
     var elementHtml = event.target
     if(checkEmail(value) == false){
       elementHtml.style.border = "red 2px solid"
+      const errorMail =  document.querySelector("#errorEmail");
+    errorMail.style.visibility = "visible";
+      
     }else {
       elementHtml.style.border = "red 0px solid"
+      supprimeError("#errorEmail")
     }
     }
     // ----------------------error date de naissance------------
@@ -368,7 +319,7 @@ function testNom(event){
 // ----------------------retire error villes au click------------
 
 const inputVilles = document.querySelectorAll(".checkbox-location")
-inputVilles.forEach((inputVille) => inputVille.addEventListener("click", function(e){
+inputVilles.forEach((inputVille) => inputVille.addEventListener("change", function(e){
     testVilles(e)
 }
 ))
@@ -381,7 +332,8 @@ function testVilles(event){
 checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 
 if (choixVille == false){
-  
+  const selectVille = document.querySelector(".selectVille")
+  selectVille.style.border="red 2px solid"
   }else{
        //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".selectVille")
@@ -393,8 +345,18 @@ if (choixVille == false){
 
 const inputConditions = document.querySelector("#checkbox1")
     inputConditions.addEventListener("click",  function(e){
-      supprimeError("#errorConditions")
+      if (inputConditions.checked){
+        supprimeError("#errorConditions")
+      }else {
+        inputConditions.style.border="red 2px solid"
+        var elementConditions = document.querySelector("#errorConditions")
+        elementConditions.style.visibility="visible"
+      }
+        
         })
+
+// ----------------------Function supprime error------------
+
 function supprimeError (errorId){
 const elementError = document.querySelector(errorId)
 elementError.style.visibility = "hidden";
