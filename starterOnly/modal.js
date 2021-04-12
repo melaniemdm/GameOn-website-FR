@@ -161,8 +161,7 @@ if (choixVille == false){
     elementVille.removeAttribute('required');
    
       }
-
-
+    
  /*------------------------validation birthdate--------------------------------*/
  //Déclaration de la variable elementBirthdate
  var elementBirthdate = document.querySelector("#birthdate");
@@ -189,6 +188,20 @@ if (choixVille == false){
 var saisieBirthdate = document.getElementById("birthdate").value;
 //storage
 sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
+
+/*-------------------------- conditions submit -----------------------------------------------*/
+const inputConditions = document.querySelector("#checkbox1")
+    
+      if (inputConditions.checked){
+        
+      }else {
+        inputConditions.style.border="red 2px solid"
+        var elementConditions = document.querySelector("#errorConditions")
+        elementConditions.style.visibility="visible"
+        errorSubmit=true
+      }
+        
+        
 
 
 // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
@@ -344,7 +357,7 @@ if (choixVille == false){
 // ----------------------retire error conditions------------
 
 const inputConditions = document.querySelector("#checkbox1")
-    inputConditions.addEventListener("click",  function(e){
+    inputConditions.addEventListener("change",  function(e){
       if (inputConditions.checked){
         supprimeError("#errorConditions")
       }else {
