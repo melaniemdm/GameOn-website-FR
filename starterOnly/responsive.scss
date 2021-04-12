@@ -90,7 +90,7 @@ padding-bottom: 5px;
 }
 }
 /*---------------------------------------tablette - MAIN ----------------------*/
-@media #{$medium-up} {
+@media #{$large-down} {
   .hero-headline{ //titre
     font-size: 52px;
 }
@@ -111,7 +111,7 @@ padding-bottom: 5px;
 }
 }
 /*---------------------------------------tablette - FOOTER ----------------------*/
-@media #{$medium-up} {
+@media #{$large-down} {
   .copyrights{
     font-size: 10px;
   }
@@ -137,7 +137,7 @@ font-weight: lighter
 }
 
 /*---------------------------------------tablette-MODAL message de fin---------------------*/
-@media #{$medium-up} {
+@media #{$large-down} {
   .contentFin{
     position: absolute;
   }
@@ -165,7 +165,7 @@ label{
 }
 
 /*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
-@media #{$medium-up} {  
+@media #{$large-down} {  
 #label1{
     transform: translateX(-1px)
   }

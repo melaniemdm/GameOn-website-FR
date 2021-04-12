@@ -87,7 +87,7 @@
 }
 
 /*---------------------------------------tablette - MAIN ----------------------*/
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .hero-headline {
     font-size: 52px;
   }
@@ -108,7 +108,7 @@
 }
 
 /*---------------------------------------tablette - FOOTER ----------------------*/
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .copyrights {
     font-size: 10px;
   }
@@ -140,7 +140,7 @@
 }
 
 /*---------------------------------------tablette-MODAL message de fin---------------------*/
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .contentFin {
     position: absolute;
   }
@@ -170,7 +170,7 @@
 }
 
 /*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 1024px) {
   #label1 {
     -webkit-transform: translateX(-1px);
             transform: translateX(-1px);
