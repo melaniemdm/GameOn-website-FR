@@ -163,3 +163,13 @@ label{
   font-size: 13px;
 }
 }
+
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media #{$medium-up} {  
+#label1{
+    transform: translateX(-1px)
+  }
+  #label2{  
+    transform: translateY(-5px);
+}
+}

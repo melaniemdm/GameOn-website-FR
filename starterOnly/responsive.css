@@ -168,4 +168,16 @@
     font-size: 13px;
   }
 }
+
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  #label1 {
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
+  }
+  #label2 {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+}
 /*# sourceMappingURL=responsive.css.map */
