@@ -20,55 +20,50 @@ $primarycolor : #e54858;
 
 // Version responsive mobile et tablette
 @media #{$medium-down} {
-    a.icon {
-      color: $primarycolor;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-  #myTopnav{
-        padding-top: 15px;
-      display: flex;
-     justify-content: space-between;
-      }
-      
-
-  .main-navbar a{
-    font-size: 20px;
-  }       
-.header-logo{
-img{
-height: 20px ;
-padding-left: 15px;
-}
-}
-.hero-img{
-  img{
-    margin-top: 20px ;
+  .topnav a.icon{
+    margin-top: 0;
   }
-}
-main{
-  margin-bottom: 0;
-}
-}
+  .header-logo img{
+      width: 150px;
+      
+  }
+  #myTopnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .icon i{
+    color:$primarycolor;
+     }
+     
+      }
+
 // --------------------------------MAIN----------------------------//
 
 @media #{$medium-down} {
-.hero-headline{
+.hero-headline{ //titre
  font-size: 32px;
  font-weight: bold; 
  padding-left: 0;
 }
-.hero-section{
+.hero-section{ // section
   margin-bottom: 0;
 }
-.hero-text{
-  font-size: 10px;
+.hero-text{ // texte
+  width: 80%;
+  font-size: 13px;
   margin-top: 25px;
   margin-right: 10px;
- 
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  }
+.hero-img{ //img
+  margin-top: -20px;
+}
 }
 .btn-signup{
-  font-size: 10px;
+  font-size: 12px;
 }
 .hero-content{
   display: flex;
@@ -77,13 +72,13 @@ main{
 padding-left: 2px;
 padding-bottom: 5px;
 }
-}
+
 
 //-------------------------------- FOOTER---------------------------------//
 @media #{$medium-down} {
 .copyrights{
   font-size: 8px;
-  margin-top:15px ;
+  margin-top:-5px ;
   margin-bottom: 10px;
 }
 }
