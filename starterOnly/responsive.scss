@@ -21,7 +21,7 @@ $primarycolor : #e54858;
 // Version responsive mobile et tablette
 @media #{$medium-down} {
   .topnav a.icon{
-    margin-top: 0;
+    margin-top: 5px;
   }
   .header-logo img{
       width: 150px;
@@ -32,11 +32,27 @@ $primarycolor : #e54858;
     align-items: center;
     justify-content: space-between;
   }
-  .icon i{
-    color:$primarycolor;
-     }
+ 
      
+     .topnav a {
+       font-size: 20px;
+     }
+     .icon a{
+      font-size: 20px;
+    }
+    .main-navbar a{
+      color: black;
+      .fa{
+        color: $primarycolor;
+        &:hover{
+          color: white;
+        }
       }
+      
+    }
+
+
+         }
 
 // --------------------------------MAIN----------------------------//
 

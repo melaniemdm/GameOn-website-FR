@@ -8,7 +8,7 @@
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
   .topnav a.icon {
-    margin-top: 0;
+    margin-top: 5px;
   }
   .header-logo img {
     width: 150px;
@@ -24,8 +24,20 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .icon i {
+  .topnav a {
+    font-size: 20px;
+  }
+  .icon a {
+    font-size: 20px;
+  }
+  .main-navbar a {
+    color: black;
+  }
+  .main-navbar a .fa {
     color: #e54858;
+  }
+  .main-navbar a .fa:hover {
+    color: white;
   }
 }
 
