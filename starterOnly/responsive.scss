@@ -67,7 +67,7 @@ $primarycolor : #e54858;
 }
 .hero-text{ // texte
   width: 80%;
-  font-size: 13px;
+  font-size: 12px;
   margin-top: 25px;
   margin-right: 10px;
   display: flex;
@@ -77,7 +77,7 @@ $primarycolor : #e54858;
 .hero-img{ //img
   margin-top: -20px;
 }
-}
+
 .btn-signup{
   font-size: 12px;
 }
@@ -88,8 +88,20 @@ $primarycolor : #e54858;
 padding-left: 2px;
 padding-bottom: 5px;
 }
+}
+/*---------------------------------------tablette - MAIN ----------------------*/
+@media #{$medium-up} {
+  .hero-headline{ //titre
+    font-size: 52px;
+}
+.hero-text{ // texte
+  font-size: 20px;
+}
 
-
+.btn-signup{
+  font-size: 20px;
+}
+}
 //-------------------------------- FOOTER---------------------------------//
 @media #{$medium-down} {
 .copyrights{
@@ -98,6 +110,13 @@ padding-bottom: 5px;
   margin-bottom: 10px;
 }
 }
+/*---------------------------------------tablette - FOOTER ----------------------*/
+@media #{$medium-up} {
+  .copyrights{
+    font-size: 10px;
+  }
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
@@ -115,4 +134,11 @@ margin-left: -28px;
 margin-top: 50px;
 font-weight: lighter
 }
+}
+
+/*---------------------------------------tablette-MODAL message de fin---------------------*/
+@media #{$medium-up} {
+  .contentFin{
+    position: absolute;
+  }
 }
