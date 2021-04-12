@@ -194,8 +194,8 @@ sessionStorage.setItem("saisieBirthdate", saisieBirthdate)
 // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
 if (errorSubmit == false){ 
   sessionStorage.clear()
-  launchModalFin()
-}
+  sessionStorage.setItem("formulaireTermine", true) 
+    }
 
 
 }
@@ -218,7 +218,7 @@ forms.forEach((form) => {
 
 function launchModalFin(){
 const modalbgFin = document.querySelector("#bgroundFin")
-modalbgFin.style.display = "block"; 
+modalbgFin.style.display = "flex"; 
 
 }
 // close modal event
@@ -360,4 +360,9 @@ const inputConditions = document.querySelector("#checkbox1")
 function supprimeError (errorId){
 const elementError = document.querySelector(errorId)
 elementError.style.visibility = "hidden";
+}
+ //-------------------------------------------------affiche au chargement de la page lemodal si le formulaire a ete rempli precedemment-------
+if(sessionStorage.getItem("formulaireTermine")){
+ sessionStorage.clear()
+  launchModalFin()
 }

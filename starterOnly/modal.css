@@ -558,7 +558,7 @@ footer {
     justify-content: space-between;
   }
   #bgroundFin{
-    display: flex;
+    display: none;
     justify-content: center;
     position: absolute;
     top: 20px;
