@@ -12,7 +12,7 @@
   height: auto;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .topnav a.icon {
     margin-top: 5px;
   }
@@ -48,7 +48,7 @@
 }
 
 /* --------------------------------MAIN----------------------------*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .hero-headline {
     font-size: 32px;
     font-weight: bold;
@@ -102,7 +102,7 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .copyrights {
     font-size: 8px;
     margin-top: -5px;
@@ -120,7 +120,7 @@
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .messageFin {
     font-size: 30px;
     display: -webkit-box;
@@ -149,13 +149,28 @@
   }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------MODAL formulaire----------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 768px) {
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
   #label1 {
-    -webkit-transform: translateX(-19px);
-            transform: translateX(-19px);
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
+  }
+  #label2 {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  .checkbox-label {
+    margin-left: 25px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------Mobile-MODAL formulaire----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+  #label1 {
+    -webkit-transform: translateX(-18px);
+            transform: translateX(-18px);
   }
   #label2 {
     -webkit-transform: translateY(-25px);
@@ -169,21 +184,6 @@
   }
   .formData label, .text-label {
     font-size: 13px;
-  }
-}
-
-/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
-@media only screen and (max-width: 1024px) {
-  #label1 {
-    -webkit-transform: translateX(-1px);
-            transform: translateX(-1px);
-  }
-  #label2 {
-    -webkit-transform: translateY(-5px);
-            transform: translateY(-5px);
-  }
-  .checkbox-label {
-    margin-left: 20px;
   }
 }
 /*# sourceMappingURL=responsive.css.map */

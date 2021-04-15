@@ -1,5 +1,5 @@
 /*création des breakpoints*/
-$medium:768px !default; /*vue tablette*/
+$medium:767px !default; /*vue tablette*/
 $large:1024px !default;/*vue desktop*/
 
 /*création des variables media queries utilisant les breakpoints*/
@@ -149,12 +149,25 @@ font-weight: lighter
   }
 }
 
+
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media #{$large-down} {  
+  #label1{
+      transform: translateX(-1px)
+    }
+    #label2{  
+      transform: translateY(-5px);
+  }
+  .checkbox-label{
+    margin-left: 25px;
+  }
+  }
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------MODAL formulaire----------------------------------------------------------------*/
+/*-------------------------------------------------Mobile-MODAL formulaire----------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 @media #{$medium-down} {
   #label1{
-    transform: translateX(-19px)
+    transform: translateX(-18px)
   }
   #label2{  
     transform: translateY(-25px);
@@ -170,15 +183,3 @@ label{
 }
 }
 
-/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
-@media #{$large-down} {  
-#label1{
-    transform: translateX(-1px)
-  }
-  #label2{  
-    transform: translateY(-5px);
-}
-.checkbox-label{
-  margin-left: 20px;
-}
-}
