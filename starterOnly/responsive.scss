@@ -61,7 +61,7 @@ $primarycolor : #e54858;
 
          }
 
-// --------------------------------MAIN----------------------------//
+/* --------------------------------MAIN----------------------------*/
 
 @media #{$medium-down} {
 .hero-headline{ //titre
@@ -78,7 +78,6 @@ $primarycolor : #e54858;
   margin-top: 25px;
   margin-right: 10px;
   display: flex;
-  flex-direction: center;
   align-items: center;
   }
 .hero-img{ //img
