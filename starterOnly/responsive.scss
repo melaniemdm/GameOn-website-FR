@@ -18,6 +18,13 @@ $primarycolor : #e54858;
 
 // -------------------------------header-----------//
 
+.header-logo img{  /* erreur w3c dans le html*/
+  width: auto ;
+  height:auto;
+  
+}
+
+
 // Version responsive mobile et tablette
 @media #{$medium-down} {
   .topnav a.icon{
