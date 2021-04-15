@@ -12,9 +12,167 @@ $large-down: "only screen and (max-width: #{$large})";
 $primarycolor : #e54858;
 
 
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------page d'accueil----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+
+// -------------------------------header-----------//
+
 // Version responsive mobile et tablette
 @media #{$medium-down} {
-    a.icon {
-      color: $primarycolor;
-    }
+  .topnav a.icon{
+    margin-top: 5px;
   }
+  .header-logo img{
+      width: 150px;
+      
+  }
+  #myTopnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+ 
+     
+     .topnav a {
+       font-size: 20px;
+     }
+     .icon a{
+      font-size: 20px;
+    }
+    .main-navbar a{
+      color: black;
+      .fa{
+        color: $primarycolor;
+        &:hover{
+          color: white;
+        }
+      }
+      
+    }
+
+
+         }
+
+// --------------------------------MAIN----------------------------//
+
+@media #{$medium-down} {
+.hero-headline{ //titre
+ font-size: 32px;
+ font-weight: bold; 
+ padding-left: 0;
+}
+.hero-section{ // section
+  margin-bottom: 0;
+}
+.hero-text{ // texte
+  width: 80%;
+  font-size: 12px;
+  margin-top: 25px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  }
+.hero-img{ //img
+  margin-top: -20px;
+}
+
+.btn-signup{
+  font-size: 12px;
+}
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+padding-left: 2px;
+padding-bottom: 5px;
+}
+}
+/*---------------------------------------tablette - MAIN ----------------------*/
+@media #{$large-down} {
+  .hero-headline{ //titre
+    font-size: 52px;
+}
+.hero-text{ // texte
+  font-size: 20px;
+}
+
+.btn-signup{
+  font-size: 20px;
+}
+}
+//-------------------------------- FOOTER---------------------------------//
+@media #{$medium-down} {
+.copyrights{
+  font-size: 8px;
+  margin-top:-5px ;
+  margin-bottom: 10px;
+}
+}
+/*---------------------------------------tablette - FOOTER ----------------------*/
+@media #{$large-down} {
+  .copyrights{
+    font-size: 10px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media #{$medium-down} {
+.messageFin{
+font-size: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.contentFin{ // modal du message de fin
+ height: 650px;
+width: 410px;
+margin-left: -28px;
+margin-top: 50px;
+font-weight: lighter
+}
+}
+
+/*---------------------------------------tablette-MODAL message de fin---------------------*/
+@media #{$large-down} {
+  .contentFin{
+    position: absolute;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL formulaire----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media #{$medium-down} {
+  #label1{
+    transform: translateX(-19px)
+  }
+  #label2{  
+    transform: translateY(-25px);
+}
+.checkbox-label{
+  margin-left: 30px;
+}
+label{
+  margin-top: 5px;
+}
+.formData label, .text-label{
+  font-size: 13px;
+}
+}
+
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media #{$large-down} {  
+#label1{
+    transform: translateX(-1px)
+  }
+  #label2{  
+    transform: translateY(-5px);
+}
+.checkbox-label{
+  margin-left: 20px;
+}
+}

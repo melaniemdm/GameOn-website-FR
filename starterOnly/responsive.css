@@ -3,9 +3,184 @@
 /*vue tablette*/
 /*vue desktop*/
 /*création des variables media queries utilisant les breakpoints*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------page d'accueil----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
-  a.icon {
+  .topnav a.icon {
+    margin-top: 5px;
+  }
+  .header-logo img {
+    width: 150px;
+  }
+  #myTopnav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .topnav a {
+    font-size: 20px;
+  }
+  .icon a {
+    font-size: 20px;
+  }
+  .main-navbar a {
+    color: black;
+  }
+  .main-navbar a .fa {
     color: #e54858;
+  }
+  .main-navbar a .fa:hover {
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero-headline {
+    font-size: 32px;
+    font-weight: bold;
+    padding-left: 0;
+  }
+  .hero-section {
+    margin-bottom: 0;
+  }
+  .hero-text {
+    width: 80%;
+    font-size: 12px;
+    margin-top: 25px;
+    margin-right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: center;
+            flex-direction: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .hero-img {
+    margin-top: -20px;
+  }
+  .btn-signup {
+    font-size: 12px;
+  }
+  .hero-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-bottom: 5px;
+  }
+}
+
+/*---------------------------------------tablette - MAIN ----------------------*/
+@media only screen and (max-width: 1024px) {
+  .hero-headline {
+    font-size: 52px;
+  }
+  .hero-text {
+    font-size: 20px;
+  }
+  .btn-signup {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .copyrights {
+    font-size: 8px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+  }
+}
+
+/*---------------------------------------tablette - FOOTER ----------------------*/
+@media only screen and (max-width: 1024px) {
+  .copyrights {
+    font-size: 10px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+  .messageFin {
+    font-size: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .contentFin {
+    height: 650px;
+    width: 410px;
+    margin-left: -28px;
+    margin-top: 50px;
+    font-weight: lighter;
+  }
+}
+
+/*---------------------------------------tablette-MODAL message de fin---------------------*/
+@media only screen and (max-width: 1024px) {
+  .contentFin {
+    position: absolute;
+  }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------MODAL formulaire----------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+  #label1 {
+    -webkit-transform: translateX(-19px);
+            transform: translateX(-19px);
+  }
+  #label2 {
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+  }
+  .checkbox-label {
+    margin-left: 30px;
+  }
+  label {
+    margin-top: 5px;
+  }
+  .formData label, .text-label {
+    font-size: 13px;
+  }
+}
+
+/*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+  #label1 {
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
+  }
+  #label2 {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  .checkbox-label {
+    margin-left: 20px;
   }
 }
 /*# sourceMappingURL=responsive.css.map */
