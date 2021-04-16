@@ -181,6 +181,10 @@
   }
 }
 
+#location1 {
+  display: block;
+}
+
 /*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
 @media only screen and (max-width: 1024px) {
   #label1 {
