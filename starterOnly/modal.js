@@ -329,6 +329,21 @@ function testNom(event){
         supprimeError("#errorBirthdate")
       }
       }
+ //-----------------------error chiffre uniquement nbre de concours---------
+ const inputConcours = document.querySelector("#quantity")
+ inputConcours.addEventListener("change", function(e){
+  if(isNaN(inputConcours.value)){
+    e.target.style.border = "red 2px solid"
+    let errorC = document.querySelector("#errorConcours")
+    errorC.style.visibility = "visible";
+     } else{
+      e.target.style.border = "red 0px solid"
+      supprimeError("#errorConcours") 
+     }
+ })
+
+
+
 // ----------------------retire error villes au click------------
 
 const inputVilles = document.querySelectorAll(".checkbox-location")
