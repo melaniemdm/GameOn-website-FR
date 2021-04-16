@@ -163,6 +163,11 @@ $primarycolor : #e54858;
 @media #{$large-down} {
   .contentFin{
     position: absolute;
+    width: 100%;
+    height: 650px;
+left: 1px;
+margin-top: 50px;
+font-weight: lighter
   }
 }
 
@@ -178,7 +183,7 @@ justify-content: center;
 }
 .contentFin{ // modal du message de fin
  height: 650px;
-width: 410px;
+
 margin-left: -28px;
 margin-top: 50px;
 font-weight: lighter

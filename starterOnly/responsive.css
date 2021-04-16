@@ -151,6 +151,11 @@
 @media only screen and (max-width: 1024px) {
   .contentFin {
     position: absolute;
+    width: 100%;
+    height: 650px;
+    left: 1px;
+    margin-top: 50px;
+    font-weight: lighter;
   }
 }
 
@@ -170,7 +175,6 @@
   }
   .contentFin {
     height: 650px;
-    width: 410px;
     margin-left: -28px;
     margin-top: 50px;
     font-weight: lighter;
