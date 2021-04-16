@@ -5,14 +5,36 @@
 /*création des variables media queries utilisant les breakpoints*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------page d'accueil----------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------  ------  ---------------------------------------------------------------------------*/
+/*-------------------------------------------  ------  ---------------------------------------------------------------------------*/
+/*-------------------------------------------          --------------------------------------------------------------------------*/
+/*-------------------------------------------  ------  ---------------------------------------------------------------------------*/
+/*-------------------------------------------  -----------------------------------------------------------------------------------*/
+/*-------------------------------------------  -----------------------------------------------------------------------------------*/
 .header-logo img {
   /* erreur w3c dans le html*/
   width: auto;
   height: auto;
 }
 
-@media only screen and (max-width: 767px) {
+/* -----------------------------------------------------------tablette header-----------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+  .main-navbar a {
+    color: black;
+  }
+  .main-navbar a .fa {
+    color: #e54858;
+  }
+  .main-navbar a .fa:hover {
+    color: white;
+  }
+  .topnav a {
+    font-size: 25px;
+  }
+}
+
+/* --------------------------------------------------------------mobile header---------------------------------------------*/
+@media only screen and (max-width: 480px) {
   .topnav a.icon {
     margin-top: 5px;
   }
@@ -47,19 +69,40 @@
   }
 }
 
-/* --------------------------------MAIN----------------------------*/
-@media only screen and (max-width: 767px) {
+/* --------------------------------------------------------------------tablette main-------------------------------------------*/
+@media only screen and (max-width: 1024px) {
   .hero-headline {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 70px;
+    font-weight: bolder;
+  }
+}
+
+/* --------------------------------------------------------------------mobile -MAIN------------------------------------------*/
+@media only screen and (max-width: 480px) {
+  .hero-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 10px;
+    padding-left: 2px;
+    padding-bottom: 5px;
+  }
+  .hero-headline {
+    font-size: 30px;
+    font-weight: bolder;
     padding-left: 0;
+    width: 80%;
   }
   .hero-section {
     margin-bottom: 0;
   }
   .hero-text {
     width: 80%;
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 25px;
     margin-right: 10px;
     display: -webkit-box;
@@ -73,54 +116,23 @@
     margin-top: -20px;
   }
   .btn-signup {
-    font-size: 12px;
-  }
-  .hero-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    margin-right: 10px;
-    padding-left: 2px;
-    padding-bottom: 5px;
+    font-size: 15px;
   }
 }
 
-/*---------------------------------------tablette - MAIN ----------------------*/
-@media only screen and (max-width: 1024px) {
-  .hero-headline {
-    font-size: 50px;
-  }
-  .hero-text {
-    font-size: 20px;
-  }
-  .btn-signup {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
+/*-------------------------------------------------------- FOOTER---------------------------------------------------------------*/
+@media only screen and (max-width: 480px) {
   .copyrights {
-    font-size: 8px;
+    font-size: 10px;
     margin-top: -5px;
     margin-bottom: 10px;
   }
 }
 
-/*---------------------------------------tablette - FOOTER ----------------------*/
-@media only screen and (max-width: 1024px) {
-  .copyrights {
-    font-size: 10px;
-  }
-}
-
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------MODAL message de fin----------------------------------------------------------------*/
+/*-------------------------------------------------mobile-MODAL message de fin----------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   .messageFin {
     font-size: 30px;
     display: -webkit-box;
@@ -142,7 +154,7 @@
   }
 }
 
-/*---------------------------------------tablette-MODAL message de fin---------------------*/
+/*----------------------------------------------tablette-MODAL message de fin---------------------------------------------------*/
 @media only screen and (max-width: 1024px) {
   .contentFin {
     position: absolute;
@@ -165,12 +177,12 @@
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------Mobile-MODAL formulaire----------------------------------------------------------------*/
+/*-------------------------------------------------Mobile-MODAL formulaire---------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------------------------------------------*/
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
   #label1 {
-    -webkit-transform: translateX(-18px);
-            transform: translateX(-18px);
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
   }
   #label2 {
     -webkit-transform: translateY(-25px);
