@@ -45,16 +45,21 @@ $primarycolor : #e54858;
   }
   .topnav a {   // menu burger
     font-size: 25px;
-  }
+      }
 }       
-/* --------------------------------------------------------------mobile header---------------------------------------------*/
+/* --------------------------------------------------------mobile header---------------------------------------------*/
 @media #{$medium-down} {
   .topnav a.icon{
     margin-top: 5px;
   }
+  .main-navbar span{ // sommaire
+    font-size: 13px;
+  }
   .header-logo img{
       width: 150px;
-      
+      position: absolute;
+      margin-top: -10px;
+      left:30px;
   }
   #myTopnav{
     display: flex;
@@ -65,7 +70,7 @@ $primarycolor : #e54858;
      
      .topnav a {
        font-size: 20px;
-     }
+           }
      .icon a{
       font-size: 20px;
     }
