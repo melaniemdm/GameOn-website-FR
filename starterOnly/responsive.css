@@ -92,7 +92,7 @@
 /*---------------------------------------tablette - MAIN ----------------------*/
 @media only screen and (max-width: 1024px) {
   .hero-headline {
-    font-size: 52px;
+    font-size: 50px;
   }
   .hero-text {
     font-size: 20px;
