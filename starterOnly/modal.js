@@ -368,11 +368,13 @@ checkVille.forEach((check) => choixVille = (check.checked || choixVille) );
 if (choixVille == false){
   const selectVille = document.querySelector(".selectVille")
   selectVille.style.border="red 2px solid"
+  let errorVilles = document.querySelector("#errorVilles")
+    errorVilles.style.visibility = "visible";
   }else{
        //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".selectVille")
     elementVille.style.border = "red 0px solid"
-    
+    supprimeError("#errorVilles") 
       }
     }
 // ----------------------retire error conditions------------
