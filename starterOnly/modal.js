@@ -17,10 +17,22 @@ function editNav() {
 const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
 //btn je m'inscrid
 const modalBtn = document.querySelectorAll(".modal-btn");
-//tous les elements de classe .formData du formulaire
+//tous les elements de classe .formData du formulaire (champs)
 const formData = document.querySelectorAll(".formData");
+
+/*---------------issue 1--------------------------*/
+
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanClose = document.querySelectorAll(".close"); 
+// close modal event
+spanClose.forEach((btn) => btn.addEventListener("click", closeModal));
+// close modal form
+function closeModal() {
+  modalbg.style.display = "none";
+}
+
+
+
 const spanCloseFin = document.querySelectorAll(".closeFin"); 
 // launch modal event  (charger l'evement modal au niveau du btn)
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // pour chaque btn contenu dans la class modal-btn on va lui ajouter un ecouteur d'evenement sur l'evenement click et lui demander de lancer la fonction launchModal lorsqu'un click est detecté
@@ -61,13 +73,7 @@ if (choixVille == false){
  }
 }
  }
-// close modal event
-spanClose.forEach((btn) => btn.addEventListener("click", closeModal));
 
-// close modal form
-function closeModal() {
-  modalbg.style.display = "none";
-}
 
 const submit = document.querySelector(".btn-submit"); // création de la constante submit (Todo 2)
 
