@@ -162,8 +162,12 @@ $primarycolor : #e54858;
 /*----------------------------------------------  ---   ---  ------------------------------------------------------------------------*/
 /*----------------------------------------------  ---------  -modal--------------------------------------------------------------------*/
 
-
-
+.selectVille{ // encadrement
+  padding-left: 4.78px;
+}
+#label1, #label2{ // les coches
+  margin-left: 10px;
+}
 /*----------------------------------------------tablette-MODAL message de fin---------------------------------------------------*/
 @media #{$large-down} {
   .contentFin{
@@ -193,12 +197,14 @@ margin-left: -28px;
 margin-top: 50px;
 font-weight: lighter
 }
+#label2{ // les coches
+  margin-left: 28px;
 }
+}
+
 #location1{ // villes
 display: block;
 }
-
-
 
 /*---------------------------------------tablette-MODAL formulaire-----------------------------------------------------------------*/
 @media #{$large-down} {  
