@@ -118,6 +118,7 @@ function submitValid() {
 
     // Déclaration variable elementPrenom
     var elementPrenom = document.getElementById("first");
+    testPrenom(elementPrenom)
   }
 
   /*---------------Déclaration de la variable saisieNom--------------------------- */
@@ -129,6 +130,10 @@ function submitValid() {
   //Conditions
   if (saisieNom == "" || saisieNom.length <= 2) {
     errorSubmit = true;
+
+     // Déclaration variable elementNom
+     var elementNom = document.getElementById("last");
+     testNom(elementNom)
   }
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
@@ -138,6 +143,11 @@ function submitValid() {
   sessionStorage.setItem("saisieEmail", saisieEmail);
   if (checkEmail(saisieEmail) == false) {
     errorSubmit = true;
+
+// Déclaration variable Email
+var elementEmail = document.getElementById("email");
+testMail(elementEmail)
+
   }
 
   /* -------------------validation du nombre de concours---------------------------*/
@@ -277,12 +287,12 @@ function closeModalFin() {
 /*--------------------------------------------------------- text et color error Prénom-------------------*/
 
 const inputPrenom = document.querySelector("#first");
-inputPrenom.addEventListener("keyup", function (e) {
-  testPrenom(e);
+inputPrenom.addEventListener("change", function (e) {
+  testPrenom(e.target);
 });
-function testPrenom(event) {
-  var value = event.target.value;
-  var elementHtml = event.target;
+function testPrenom(noeudHtml) {
+  var value = noeudHtml.value;
+  var elementHtml = noeudHtml;
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = "red 2px solid";
 
@@ -296,13 +306,13 @@ function testPrenom(event) {
 
 /*---------------------------------------------------------text et color error Nom -------------------------*/
 const inputNom = document.querySelector("#last");
-inputNom.addEventListener("keyup", function (e) {
-  testNom(e);
+inputNom.addEventListener("change", function (e) {
+  testNom(e.target);
 });
 
-function testNom(event) {
-  var value = event.target.value;
-  var elementHtml = event.target;
+function testNom(noeudHtml) {
+  var value = noeudHtml.value;
+  var elementHtml =noeudHtml;
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = "red 2px solid";
     const errorNom = document.querySelector("#errorNom");
@@ -314,12 +324,12 @@ function testNom(event) {
 }
 // ----------------------error du mail------------
 const inputMail = document.querySelector("#email");
-inputMail.addEventListener("keyup", function (e) {
-  testMail(e);
+inputMail.addEventListener("change", function (e) {
+  testMail(e.target);
 });
-function testMail(event) {
-  var value = event.target.value;
-  var elementHtml = event.target;
+function testMail(noeudHtml) {
+  var value = noeudHtml.value;
+  var elementHtml = noeudHtml;
   if (checkEmail(value) == false) {
     elementHtml.style.border = "red 2px solid";
     const errorMail = document.querySelector("#errorEmail");
