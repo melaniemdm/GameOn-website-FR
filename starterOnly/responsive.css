@@ -157,7 +157,8 @@
   padding-left: 4.78px;
 }
 
-#label1, #label2 {
+#label1,
+#label2 {
   margin-left: 10px;
 }
 
@@ -235,7 +236,8 @@
   label {
     margin-top: 5px;
   }
-  .formData label, .text-label {
+  .formData label,
+  .text-label {
     font-size: 13px;
   }
 }

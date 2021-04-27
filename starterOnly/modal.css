@@ -35,10 +35,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -70,7 +70,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -78,7 +80,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -91,16 +95,16 @@ img {
   }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -112,8 +116,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -529,40 +531,38 @@ footer {
     opacity: 1;
   }
 }
-.textError{
-  color:#fe142f;
+.textError {
+  color: #fe142f;
   font-size: 11px;
   visibility: hidden;
   height: 5px;
 }
-#errorConditions{
+#errorConditions {
   transform: translateX(20px) translateY(-5px);
 }
 
-.contentFin{
-  height: 753px ;
+.contentFin {
+  height: 753px;
   width: 500px;
   display: flex;
- 
 }
-#btnClose{
-  height: 50px ;
+#btnClose {
+  height: 50px;
   width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  }
-  .modalFinBody{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  #bgroundFin{
-    display: none;
-    justify-content: center;
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    z-index: 1;
-  }
+}
+.modalFinBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#bgroundFin {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  z-index: 1;
+}
