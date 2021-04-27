@@ -160,6 +160,11 @@
 #label1,
 #label2 {
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  cursor: pointer;
 }
 
 /*----------------------------------------------tablette-MODAL message de fin---------------------------------------------------*/

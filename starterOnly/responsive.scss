@@ -170,6 +170,10 @@ $primarycolor: #e54858;
 #label2 {
   // les coches
   margin-left: 10px;
+  cursor: pointer;
+}
+.checkbox-label{
+  cursor: pointer;
 }
 /*----------------------------------------------tablette-MODAL message de fin---------------------------------------------------*/
 @media #{$large-down} {
