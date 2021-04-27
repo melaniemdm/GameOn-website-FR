@@ -279,6 +279,12 @@ function closeModalFin() {
   const modalbgFin = document.querySelector("#bgroundFin");
   modalbgFin.style.display = "none";
 }
+// fermeture du formulaire avec echap
+document.addEventListener("keyup", function(e){
+  if(e.keyCode == 27){
+    closeModal()
+      }
+});
 
 /*-----------------------------------------------------------------------------------------------------------*/
 //--------------------------------------------------------- Gestion des errors -------------------------------//
