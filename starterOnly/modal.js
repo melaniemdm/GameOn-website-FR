@@ -284,6 +284,9 @@ document.addEventListener("keyup", function(e){
   if(e.keyCode == 27){
     closeModal()
       }
+ if(e.keyCode == 13){
+  submitValid()
+ }     
 });
 
 /*-----------------------------------------------------------------------------------------------------------*/
