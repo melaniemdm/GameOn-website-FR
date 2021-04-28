@@ -12,7 +12,7 @@ function editNav() {
 
 //l'ensemble du formulaire (la page du formulaire)
 const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
-//btn je m'inscrid
+//btn je m'inscris
 const modalBtn = document.querySelectorAll(".modal-btn");
 //tous les elements de classe .formData du formulaire (champs)
 const formData = document.querySelectorAll(".formData");
@@ -82,11 +82,14 @@ function launchModal() {
 
     const colorError = "#fe142f"; //couleur de l'erreur
 
-    var choixVille = false;
-    var checkVille = document.querySelectorAll(".checkbox-location");
-    checkVille.forEach((check) => (choixVille = check.checked || choixVille));
+  var loc1 = document.querySelector("#location1").checked
+  var loc2 = document.querySelector("#location2").checked
+  var loc3 = document.querySelector("#location3").checked
+  var loc4 = document.querySelector("#location4").checked
+  var loc5 = document.querySelector("#location5").checked
+  var loc6 = document.querySelector("#location6").checked
 
-    if (choixVille == false) {
+  if (!(loc1 || loc2 || loc3 || loc4|| loc5|| loc6)) {
       const selectVille = document.querySelector(".selectVille");
       selectVille.style.border = colorError + " 2px solid";
     }
@@ -384,22 +387,24 @@ inputVilles.forEach((inputVille) =>
 );
 
 function testVilles(event) {
-  var choixVille = false;
+  
+  var loc1 = document.querySelector("#location1").checked
+  var loc2 = document.querySelector("#location2").checked
+  var loc3 = document.querySelector("#location3").checked
+  var loc4 = document.querySelector("#location4").checked
+  var loc5 = document.querySelector("#location5").checked
+  var loc6 = document.querySelector("#location6").checked
 
-  var checkVille = document.querySelectorAll(".checkbox-location");
-  //boucle - regarde un par un si ville cochées
-  checkVille.forEach((check) => (choixVille = check.checked || choixVille));
-
-  if (choixVille == false) {
-    const selectVille = document.querySelector(".selectVille");
-    selectVille.style.border = "red 2px solid";
-    let errorVilles = document.querySelector("#errorVilles");
-    errorVilles.style.visibility = "visible";
-  } else {
+  if (loc1 || loc2 || loc3 || loc4|| loc5|| loc6){
     //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".selectVille");
     elementVille.style.border = "red 0px solid";
     supprimeError("#errorVilles");
+  } else {
+        const selectVille = document.querySelector(".selectVille");
+    selectVille.style.border = "red 2px solid";
+    let errorVilles = document.querySelector("#errorVilles");
+    errorVilles.style.visibility = "visible";
   }
 }
 // ----------------------retire error conditions------------
