@@ -99,9 +99,7 @@ function launchModal() {
   }
 }
 
-const submit = document.querySelector(".btn-submit"); // création de la constante submit (Todo 2)
 
-submit.addEventListener("click", submitValid); // a l'evenement click lance la fonction submitValid
 
 /*-----------------------------------------------------------------------------------------------------------*/
 //--------------------------------Fonction submitValid------------------------------------------------------//
