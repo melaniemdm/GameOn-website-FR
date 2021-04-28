@@ -10,6 +10,11 @@ function editNav() {
 //--------------------------- Element du DOM Elements--------------------------------------------------------//
 /*-----------------------------------------------------------------------------------------------------------*/
 
+//Activer le btn c'est parti
+var subValid = document.querySelector(".btn-submit");
+subValid.addEventListener("click", submitValid)
+
+
 //l'ensemble du formulaire (la page du formulaire)
 const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
 //btn je m'inscris
@@ -60,7 +65,18 @@ function launchModal() {
     document.querySelector("#birthdate").value = sessionStorage.getItem(
       "saisieBirthdate"
     );
-    
+  //date du jour
+  var today = new Date();
+   var dateBirthdate = new Date (document.querySelector("#birthdate").value);
+   //condition
+   if (elementBirthdate.value.length == "" || dateBirthdate > today ) {
+     errorSubmit = true;
+     const inputBirthdate = document.querySelector("#birthdate");
+         inputBirthdate.style.border = colorError + " 2px solid";
+         const errorBirthdate = document.querySelector("#errorBirthdate");
+         errorBirthdate.style.visibility = "visible";
+   }
+
 //cocher la ville avec la valeur de "saisieVille" enregistrée dans sessionStorage
     document.querySelector("#location1").checked === sessionStorage.getItem(
       "saisieVille1"
@@ -212,8 +228,13 @@ function submitValid() {
   /*------------------------validation birthdate--------------------------------*/
   //Déclaration de la variable elementBirthdate
   var elementBirthdate = document.querySelector("#birthdate");
+  //date du jour
+  var today = new Date();
+   var dateBirthdate = new Date (document.querySelector("#birthdate").value);
+
+
   //condition
-  if (elementBirthdate.value.length == "") {
+  if (elementBirthdate.value.length == "" || dateBirthdate > today ) {
     errorSubmit = true;
     const inputBirthdate = document.querySelector("#birthdate");
         inputBirthdate.style.border = colorError + " 2px solid";
