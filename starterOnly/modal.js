@@ -162,8 +162,7 @@ function submitValid() {
     errorSubmit = true;
   }
   /*----------------------------------validation du check sur les villes-----------*/
-  var choixVille = false;
-
+  
   //storage du choix des villes
   sessionStorage.setItem(
     "saisieVille1",
@@ -190,19 +189,20 @@ function submitValid() {
     document.querySelector("#location6").checked
   );
 
-  //Déclaration de la variable checkVille
-  var checkVille = document.querySelectorAll(".checkbox-location");
-  //boucle - regarde un par un si ville cochées
-  checkVille.forEach((check) => (choixVille = check.checked || choixVille));
+  var loc1 = document.querySelector("#location1").checked
+  var loc2 = document.querySelector("#location2").checked
+  var loc3 = document.querySelector("#location3").checked
+  var loc4 = document.querySelector("#location4").checked
+  var loc5 = document.querySelector("#location5").checked
+  var loc6 = document.querySelector("#location6").checked
 
-  if (choixVille == false) {
-    testVilles("");
-    errorSubmit = true;
-  } else {
+  if (loc1 || loc2 || loc3 || loc4|| loc5|| loc6){
     //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".checkbox-input");
-
     elementVille.removeAttribute("required");
+  } else {
+        testVilles("");
+    errorSubmit = true;
   }
 
   /*------------------------validation birthdate--------------------------------*/
@@ -211,23 +211,12 @@ function submitValid() {
   //condition
   if (elementBirthdate.value.length == "") {
     errorSubmit = true;
-  }
-  //fonction
-  elementBirthdate.oninvalid = function (event) {
-    event.target.setCustomValidity("");
-    if (!event.target.validity.valid) {
-      if (event.target.value.length == "") {
-        event.target.setCustomValidity(
-          "Vous devez entrer votre date de naissance."
-        );
-
-        const inputBirthdate = document.querySelector("#birthdate");
+    const inputBirthdate = document.querySelector("#birthdate");
         inputBirthdate.style.border = colorError + " 2px solid";
         const errorBirthdate = document.querySelector("#errorBirthdate");
         errorBirthdate.style.visibility = "visible";
-      }
-    }
-  };
+  }
+  
   //Déclaration de la varaible saisieBirthdate
   var saisieBirthdate = document.getElementById("birthdate").value;
   //storage
@@ -256,14 +245,14 @@ function checkEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-// supprime les bulle d'error html5
+// supprime les bulles d'error html5
 var forms = document.querySelectorAll("#formulaire");
 forms.forEach((form) => {
   form.addEventListener(
     "invalid",
     function (e) {
       e.preventDefault();
-      //Possibly implement your own here.
+      
     },
     true
   );
@@ -281,13 +270,19 @@ function closeModalFin() {
   const modalbgFin = document.querySelector("#bgroundFin");
   modalbgFin.style.display = "none";
 }
+
+/*-----------------------------------------------------------------------------------------------------------*/
+//--------------------------------------------------------- Gestion des evenements -------------------------------//
+/*-----------------------------------------------------------------------------------------------------------*/
 // fermeture du formulaire avec echap
 document.addEventListener("keyup", function (e) {
   if (e.keyCode == 27) {
     closeModal();
+    closeModalFin()
   }
   if (e.keyCode == 13) {
     submitValid();
+    closeModalFin()
   }
 });
 
