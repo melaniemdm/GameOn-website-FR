@@ -60,25 +60,28 @@ function launchModal() {
     document.querySelector("#birthdate").value = sessionStorage.getItem(
       "saisieBirthdate"
     );
+    
 //cocher la ville avec la valeur de "saisieVille" enregistrée dans sessionStorage
-    document.querySelector("#location1").checked = sessionStorage.getItem(
+    document.querySelector("#location1").checked === sessionStorage.getItem(
       "saisieVille1"
     );
-    document.querySelector("#location2").checked = sessionStorage.getItem(
+    document.querySelector("#location2").checked === sessionStorage.getItem(
       "saisieVille2"
     );
-    document.querySelector("#location3").checked = sessionStorage.getItem(
+    document.querySelector("#location3").checked === sessionStorage.getItem(
       "saisieVille3"
     );
-    document.querySelector("#location4").checked = sessionStorage.getItem(
+    document.querySelector("#location4").checked === sessionStorage.getItem(
       "saisieVille4"
     );
-    document.querySelector("#location5").checked = sessionStorage.getItem(
+    document.querySelector("#location5").checked === sessionStorage.getItem(
       "saisieVille5"
     );
-    document.querySelector("#location6").checked = sessionStorage.getItem(
+    document.querySelector("#location6").checked === sessionStorage.getItem(
       "saisieVille6"
     );
+    
+
 
     const colorError = "#fe142f"; //couleur de l'erreur
 
