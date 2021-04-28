@@ -42,40 +42,43 @@ function launchModal() {
 
   // test l'existance d'une session storage
   if (sessionStorage.getItem("autosave")) {
-    let getPrenom = (document.querySelector(
-      "#first"
-    ).value = sessionStorage.getItem("saisiePrenom"));
-    let getNom = (document.querySelector(
-      "#last"
-    ).value = sessionStorage.getItem("saisieNom"));
-    let getEmail = (document.querySelector(
-      "#email"
-    ).value = sessionStorage.getItem("saisieEmail"));
-    let getConcours = (document.querySelector(
-      "#quantity"
-    ).value = sessionStorage.getItem("saisieConcours"));
-    let getBirthdate = (document.querySelector(
-      "#birthdate"
-    ).value = sessionStorage.getItem("saisieBirthdate"));
-
-    let getSaisieVille1 = (document.querySelector(
-      "#location1"
-    ).checked = sessionStorage.getItem("saisieVille1"));
-    let getSaisieVille2 = (document.querySelector(
-      "#location2"
-    ).checked = sessionStorage.getItem("saisieVille2"));
-    let getSaisieVille3 = (document.querySelector(
-      "#location3"
-    ).checked = sessionStorage.getItem("saisieVille3"));
-    let getSaisieVille4 = (document.querySelector(
-      "#location4"
-    ).checked = sessionStorage.getItem("saisieVille4"));
-    let getSaisieVille5 = (document.querySelector(
-      "#location5"
-    ).checked = sessionStorage.getItem("saisieVille5"));
-    let getSaisieVille6 = (document.querySelector(
-      "#location6"
-    ).checked = sessionStorage.getItem("saisieVille6"));
+    //remplir le champs prénom avec la valeur de "saisiePrenom" enregistrée dans sessionStorage
+    document.querySelector("#first").value = sessionStorage.getItem(
+      "saisiePrenom"
+    );
+    //remplir le champs nom avec la valeur de "saisieNom" enregistrée dans sessionStorage
+    document.querySelector("#last").value = sessionStorage.getItem("saisieNom");
+    //remplir le champs email avec la valeur de "email" enregistrée dans sessionStorage
+    document.querySelector("#email").value = sessionStorage.getItem(
+      "saisieEmail"
+    );
+    //remplir le champs saisieConcours avec la valeur de "saisieConcours" enregistrée dans sessionStorage
+    document.querySelector("#quantity").value = sessionStorage.getItem(
+      "saisieConcours"
+    );
+    //remplir le champs birthdate avec la valeur de "saisieBirthdate" enregistrée dans sessionStorage
+    document.querySelector("#birthdate").value = sessionStorage.getItem(
+      "saisieBirthdate"
+    );
+//cocher la ville avec la valeur de "saisieVille" enregistrée dans sessionStorage
+    document.querySelector("#location1").checked = sessionStorage.getItem(
+      "saisieVille1"
+    );
+    document.querySelector("#location2").checked = sessionStorage.getItem(
+      "saisieVille2"
+    );
+    document.querySelector("#location3").checked = sessionStorage.getItem(
+      "saisieVille3"
+    );
+    document.querySelector("#location4").checked = sessionStorage.getItem(
+      "saisieVille4"
+    );
+    document.querySelector("#location5").checked = sessionStorage.getItem(
+      "saisieVille5"
+    );
+    document.querySelector("#location6").checked = sessionStorage.getItem(
+      "saisieVille6"
+    );
 
     const colorError = "#fe142f"; //couleur de l'erreur
 
@@ -118,7 +121,7 @@ function submitValid() {
 
     // Déclaration variable elementPrenom
     var elementPrenom = document.getElementById("first");
-    testPrenom(elementPrenom)
+    testPrenom(elementPrenom);
   }
 
   /*---------------Déclaration de la variable saisieNom--------------------------- */
@@ -131,9 +134,9 @@ function submitValid() {
   if (saisieNom == "" || saisieNom.length <= 2) {
     errorSubmit = true;
 
-     // Déclaration variable elementNom
-     var elementNom = document.getElementById("last");
-     testNom(elementNom)
+    // Déclaration variable elementNom
+    var elementNom = document.getElementById("last");
+    testNom(elementNom);
   }
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
@@ -144,10 +147,9 @@ function submitValid() {
   if (checkEmail(saisieEmail) == false) {
     errorSubmit = true;
 
-// Déclaration variable Email
-var elementEmail = document.getElementById("email");
-testMail(elementEmail)
-
+    // Déclaration variable Email
+    var elementEmail = document.getElementById("email");
+    testMail(elementEmail);
   }
 
   /* -------------------validation du nombre de concours---------------------------*/
@@ -280,13 +282,13 @@ function closeModalFin() {
   modalbgFin.style.display = "none";
 }
 // fermeture du formulaire avec echap
-document.addEventListener("keyup", function(e){
-  if(e.keyCode == 27){
-    closeModal()
-      }
- if(e.keyCode == 13){
-  submitValid()
- }     
+document.addEventListener("keyup", function (e) {
+  if (e.keyCode == 27) {
+    closeModal();
+  }
+  if (e.keyCode == 13) {
+    submitValid();
+  }
 });
 
 /*-----------------------------------------------------------------------------------------------------------*/
@@ -321,7 +323,7 @@ inputNom.addEventListener("change", function (e) {
 
 function testNom(noeudHtml) {
   var value = noeudHtml.value;
-  var elementHtml =noeudHtml;
+  var elementHtml = noeudHtml;
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = "red 2px solid";
     const errorNom = document.querySelector("#errorNom");
