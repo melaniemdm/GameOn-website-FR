@@ -294,7 +294,7 @@ function launchModalFin() {
 
   let fullName = document.querySelector("#first").value;
   let userEmail = document.querySelector("#email").value;
-  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").checked + '/'+ document.querySelector("#checkbox2").value + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").checked + '/'+ document.querySelector("#location3").checked + '/'+ document.querySelector("#location4").checked + '/'+ document.querySelector("#location5").checked + '/'+ document.querySelector("#location6").checked;
+  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").checked + '/'+ document.querySelector("#checkbox2").checked + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").checked + '/'+ document.querySelector("#location3").checked + '/'+ document.querySelector("#location4").checked + '/'+ document.querySelector("#location5").checked + '/'+ document.querySelector("#location6").checked;
   
   
   var contactParams = {
