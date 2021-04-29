@@ -79,7 +79,10 @@ function launchModal() {
          inputBirthdate.style.border = colorError + " 2px solid";
          const errorBirthdate = document.querySelector("#errorBirthdate");
          errorBirthdate.style.visibility = "visible";
-   }
+   }else{
+    var elementHide = document.querySelector(".hide");
+    elementHide.removeAttribute("required");
+  }
 
 //cocher la ville avec la valeur de "saisieVille" enregistrée dans sessionStorage
     document.querySelector("#location1").checked === sessionStorage.getItem(
@@ -242,6 +245,9 @@ function submitValid() {
         inputBirthdate.style.border = colorError + " 2px solid";
         const errorBirthdate = document.querySelector("#errorBirthdate");
         errorBirthdate.style.visibility = "visible";
+  }else{
+    var elementHide = document.querySelector(".hide");
+    elementHide.removeAttribute("required");
   }
   
   //Déclaration de la varaible saisieBirthdate
@@ -259,13 +265,13 @@ function submitValid() {
     elementConditions.style.visibility = "visible";
     errorSubmit = true;
   }
-
+sessionStorage.setItem("checkConditions", inputConditions.checked)
+sessionStorage.setItem("checkConditions2", document.querySelector("#checkbox2").checked)
   // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
   if (errorSubmit == false) {
-   
-    sessionStorage.setItem("formulaireTermine", true);
+
+   sessionStorage.setItem("formulaireTermine", true);
     
-   
   }
 
   
@@ -291,10 +297,12 @@ forms.forEach((form) => {
 });
 
 function launchModalFin() {
-
-  let fullName = document.querySelector("#first").value;
-  let userEmail = document.querySelector("#email").value;
-  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").checked + '/'+ document.querySelector("#checkbox2").checked + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").checked + '/'+ document.querySelector("#location3").checked + '/'+ document.querySelector("#location4").checked + '/'+ document.querySelector("#location5").checked + '/'+ document.querySelector("#location6").checked;
+  
+ 
+ let fullName = sessionStorage.getItem( "saisiePrenom" );
+  let userEmail = sessionStorage.getItem("saisieEmail" );
+  
+  let userMessage = "launchModalFin:" + sessionStorage.getItem("saisieNom") + '/'+ sessionStorage.getItem("saisieBirthdate") + '/'+ sessionStorage.getItem("saisieConcours")  + '/'+ sessionStorage.getItem("saisieVille1") + '/'+ sessionStorage.getItem("saisieVille2") + '/'+ sessionStorage.getItem("saisieVille3") + '/'+ sessionStorage.getItem("saisieVille4") + '/'+ sessionStorage.getItem("saisieVille5") + '/'+sessionStorage.getItem("saisieVille6") + '/'+ sessionStorage.getItem("checkConditions") + '/'+ sessionStorage.getItem("checkConditions2");
   
   
   var contactParams = {
@@ -307,9 +315,8 @@ function launchModalFin() {
     emailjs.init("user_7tR9LJzR8U8F0vQka347x");
    
   emailjs.send("service_ahy6xbq", "template_ylvldvg", contactParams)
+  sessionStorage.clear();
   
-
-
   const modalbgFin = document.querySelector("#bgroundFin");
   modalbgFin.style.display = "flex";
 }
@@ -477,6 +484,6 @@ function supprimeError(errorId) {
 }
 //-------------------------------------------------affiche au chargement de la page lemodal si le formulaire a ete rempli precedemment-------
 if (sessionStorage.getItem("formulaireTermine")) {
-  sessionStorage.clear();
+ 
   launchModalFin();
 }

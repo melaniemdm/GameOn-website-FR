@@ -178,6 +178,9 @@ $primarycolor: #e54858;
 .checkbox-label{
   cursor: pointer;
 }
+.hide{
+  display: none;
+}
 /*----------------------------------------------tablette-MODAL message de fin---------------------------------------------------*/
 @media #{$large-down} {
   .contentFin {
