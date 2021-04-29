@@ -6,6 +6,9 @@ function editNav() {
     x.className = "topnav";
   }
 }
+
+const colorError = "#fe142f"; //couleur de l'erreur
+
 /*-----------------------------------------------------------------------------------------------------------*/
 //--------------------------- Element du DOM Elements--------------------------------------------------------//
 /*-----------------------------------------------------------------------------------------------------------*/
@@ -68,6 +71,7 @@ function launchModal() {
   //date du jour
   var today = new Date();
    var dateBirthdate = new Date (document.querySelector("#birthdate").value);
+   var elementBirthdate = document.querySelector("#birthdate");
    //condition
    if (elementBirthdate.value.length == "" || dateBirthdate > today ) {
      errorSubmit = true;
@@ -98,9 +102,6 @@ function launchModal() {
     );
     
 
-
-    const colorError = "#fe142f"; //couleur de l'erreur
-
   var loc1 = document.querySelector("#location1").checked
   var loc2 = document.querySelector("#location2").checked
   var loc3 = document.querySelector("#location3").checked
@@ -112,6 +113,7 @@ function launchModal() {
       const selectVille = document.querySelector(".selectVille");
       selectVille.style.border = colorError + " 2px solid";
     }
+    
   }
 }
 
