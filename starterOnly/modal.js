@@ -260,9 +260,14 @@ function submitValid() {
 
   // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
   if (errorSubmit == false) {
-    sessionStorage.clear();
+    // sessionStorage.clear();
     sessionStorage.setItem("formulaireTermine", true);
+    
+   
   }
+
+  
+
 }
 
 /*----------fonction de test d'email (regex = expression reguliere)-----------------*/
@@ -284,9 +289,29 @@ forms.forEach((form) => {
 });
 
 function launchModalFin() {
+
+  let fullName = document.querySelector("#first").value;
+  let userEmail = document.querySelector("#email").value;
+  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").value + '/'+ document.querySelector("#checkbox2").value + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").value + '/'+ document.querySelector("#location3").value + '/'+ document.querySelector("#location4").value + '/'+ document.querySelector("#location5").value + '/'+ document.querySelector("#location6").value;
+  
+  
+  var contactParams = {
+    from_name: fullName,
+    reply_to: userEmail,
+     message: userMessage
+  };
+
+  
+    emailjs.init("user_7tR9LJzR8U8F0vQka347x");
+   
+  emailjs.send(service_ahy6xbq, template_ylvldvg, contactParams)
+  
+
+
   const modalbgFin = document.querySelector("#bgroundFin");
   modalbgFin.style.display = "flex";
 }
+
 // close modal event
 spanCloseFin.forEach((btn) => btn.addEventListener("click", closeModalFin));
 
@@ -450,6 +475,6 @@ function supprimeError(errorId) {
 }
 //-------------------------------------------------affiche au chargement de la page lemodal si le formulaire a ete rempli precedemment-------
 if (sessionStorage.getItem("formulaireTermine")) {
-  sessionStorage.clear();
+  // sessionStorage.clear();
   launchModalFin();
 }
