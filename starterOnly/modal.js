@@ -260,7 +260,7 @@ function submitValid() {
 
   // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
   if (errorSubmit == false) {
-    // sessionStorage.clear();
+   
     sessionStorage.setItem("formulaireTermine", true);
     
    
@@ -292,7 +292,7 @@ function launchModalFin() {
 
   let fullName = document.querySelector("#first").value;
   let userEmail = document.querySelector("#email").value;
-  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").value + '/'+ document.querySelector("#checkbox2").value + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").value + '/'+ document.querySelector("#location3").value + '/'+ document.querySelector("#location4").value + '/'+ document.querySelector("#location5").value + '/'+ document.querySelector("#location6").value;
+  let userMessage = document.querySelector("#last").value + '/'+ document.querySelector("#birthdate" ).value + '/'+ document.querySelector("#quantity").value + '/'+ document.querySelector("#checkbox1").checked + '/'+ document.querySelector("#checkbox2").value + '/'+ document.querySelector("#location1").value + '/'+ document.querySelector("#location2").checked + '/'+ document.querySelector("#location3").checked + '/'+ document.querySelector("#location4").checked + '/'+ document.querySelector("#location5").checked + '/'+ document.querySelector("#location6").checked;
   
   
   var contactParams = {
@@ -304,7 +304,7 @@ function launchModalFin() {
   
     emailjs.init("user_7tR9LJzR8U8F0vQka347x");
    
-  emailjs.send(service_ahy6xbq, template_ylvldvg, contactParams)
+  emailjs.send("service_ahy6xbq", "template_ylvldvg", contactParams)
   
 
 
@@ -475,6 +475,6 @@ function supprimeError(errorId) {
 }
 //-------------------------------------------------affiche au chargement de la page lemodal si le formulaire a ete rempli precedemment-------
 if (sessionStorage.getItem("formulaireTermine")) {
-  // sessionStorage.clear();
+  sessionStorage.clear();
   launchModalFin();
 }
