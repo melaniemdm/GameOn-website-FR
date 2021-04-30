@@ -68,22 +68,7 @@ function launchModal() {
     document.querySelector("#birthdate").value = sessionStorage.getItem(
       "saisieBirthdate"
     );
-  //date du jour
-  var today = new Date();
-   var dateBirthdate = new Date (document.querySelector("#birthdate").value);
-   var elementBirthdate = document.querySelector("#birthdate");
-   //condition
-   if (elementBirthdate.value.length == "" || dateBirthdate > today ) {
-     errorSubmit = true;
-     const inputBirthdate = document.querySelector("#birthdate");
-         inputBirthdate.style.border = colorError + " 2px solid";
-         const errorBirthdate = document.querySelector("#errorBirthdate");
-         errorBirthdate.style.visibility = "visible";
-   }else{
-    var elementHide = document.querySelector(".hide");
-    elementHide.removeAttribute("required");
-  }
-
+  
 //cocher la ville avec la valeur de "saisieVille" enregistrée dans sessionStorage
     document.querySelector("#location1").checked === sessionStorage.getItem(
       "saisieVille1"
@@ -103,20 +88,13 @@ function launchModal() {
     document.querySelector("#location6").checked === sessionStorage.getItem(
       "saisieVille6"
     );
-    
-
-  var loc1 = document.querySelector("#location1").checked
-  var loc2 = document.querySelector("#location2").checked
-  var loc3 = document.querySelector("#location3").checked
-  var loc4 = document.querySelector("#location4").checked
-  var loc5 = document.querySelector("#location5").checked
-  var loc6 = document.querySelector("#location6").checked
-
-  if (!(loc1 || loc2 || loc3 || loc4|| loc5|| loc6)) {
-      const selectVille = document.querySelector(".selectVille");
-      selectVille.style.border = colorError + " 2px solid";
-    }
-    
+    testPrenom()
+    testNom()
+    testMail()
+    testBirthdate()
+    testConcours()
+    testVilles()
+    testConditions()
   }
 }
 
@@ -140,52 +118,56 @@ function submitValid() {
   // permet de garder les éléments ecris par l'utilisateur
   sessionStorage.setItem("saisiePrenom", saisiePrenom);
 
-  // conditions Prénom
-  if (saisiePrenom == "" || saisiePrenom.length <= 2) {
-    errorSubmit = true;
-
-    // Déclaration variable elementPrenom
-    var elementPrenom = document.getElementById("first");
-    testPrenom(elementPrenom);
-  }
+  // appel de la function testPrenom
+ if (testPrenom() === false){
+   errorSubmit = true
+ }
 
   /*---------------Déclaration de la variable saisieNom--------------------------- */
   var saisieNom = document.getElementById("last").value;
 
   // storage et modification de couleur si error
   sessionStorage.setItem("saisieNom", saisieNom);
-
-  //Conditions
-  if (saisieNom == "" || saisieNom.length <= 2) {
-    errorSubmit = true;
-
-    // Déclaration variable elementNom
-    var elementNom = document.getElementById("last");
-    testNom(elementNom);
-  }
+ 
+  // appel de la function testNom
+ if (testNom() === false){
+  errorSubmit = true
+}
+  
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
 
   // storage et modification de couleur si error
   var saisieEmail = document.getElementById("email").value;
   sessionStorage.setItem("saisieEmail", saisieEmail);
-  if (checkEmail(saisieEmail) == false) {
-    errorSubmit = true;
+// appel de la function testMail
+if (testMail() === false){
+  errorSubmit = true
+}
 
-    // Déclaration variable Email
-    var elementEmail = document.getElementById("email");
-    testMail(elementEmail);
-  }
+/*------------------------validation birthdate--------------------------------*/
+  
+  
+  //Déclaration de la varaible saisieBirthdate
+  var saisieBirthdate = document.getElementById("birthdate").value;
+  //storage
+  sessionStorage.setItem("saisieBirthdate", saisieBirthdate);
+
+// appel de la function testBirthdate
+if (testBirthdate() === false){
+  errorSubmit = true
+}
 
   /* -------------------validation du nombre de concours---------------------------*/
   //Déclaration de la varaible saisieConcours
   var saisieConcours = document.getElementById("quantity").value;
   //storage
   sessionStorage.setItem("saisieConcours", saisieConcours);
-  //condition
-  if (isNaN(saisieConcours)) {
-    errorSubmit = true;
-  }
+
+  // appel de la function testConcours
+if (testConcours() === false){
+  errorSubmit = true
+}
   /*----------------------------------validation du check sur les villes-----------*/
   
   //storage du choix des villes
@@ -213,68 +195,30 @@ function submitValid() {
     "saisieVille6",
     document.querySelector("#location6").checked
   );
-
-  var loc1 = document.querySelector("#location1").checked
-  var loc2 = document.querySelector("#location2").checked
-  var loc3 = document.querySelector("#location3").checked
-  var loc4 = document.querySelector("#location4").checked
-  var loc5 = document.querySelector("#location5").checked
-  var loc6 = document.querySelector("#location6").checked
-
-  if (loc1 || loc2 || loc3 || loc4|| loc5|| loc6){
-    //Déclaration de la variable elementVille
-    var elementVille = document.querySelector(".checkbox-input");
-    elementVille.removeAttribute("required");
-  } else {
-        testVilles("");
-    errorSubmit = true;
-  }
-
-  /*------------------------validation birthdate--------------------------------*/
-  //Déclaration de la variable elementBirthdate
-  var elementBirthdate = document.querySelector("#birthdate");
-  //date du jour
-  var today = new Date();
-   var dateBirthdate = new Date (document.querySelector("#birthdate").value);
-
-
-  //condition
-  if (elementBirthdate.value.length == "" || dateBirthdate > today ) {
-    errorSubmit = true;
-    const inputBirthdate = document.querySelector("#birthdate");
-        inputBirthdate.style.border = colorError + " 2px solid";
-        const errorBirthdate = document.querySelector("#errorBirthdate");
-        errorBirthdate.style.visibility = "visible";
-  }else{
-    var elementHide = document.querySelector(".hide");
-    elementHide.removeAttribute("required");
-  }
+// appel de la function testVilles
+if (testVilles() === false){
+  errorSubmit = true
+}
   
-  //Déclaration de la varaible saisieBirthdate
-  var saisieBirthdate = document.getElementById("birthdate").value;
-  //storage
-  sessionStorage.setItem("saisieBirthdate", saisieBirthdate);
 
+  
   /*-------------------------- conditions submit -----------------------------------------------*/
   const inputConditions = document.querySelector("#checkbox1");
 
-  if (inputConditions.checked) {
-  } else {
-    inputConditions.style.border = "red 2px solid";
-    var elementConditions = document.querySelector("#errorConditions");
-    elementConditions.style.visibility = "visible";
-    errorSubmit = true;
-  }
 sessionStorage.setItem("checkConditions", inputConditions.checked)
 sessionStorage.setItem("checkConditions2", document.querySelector("#checkbox2").checked)
+
+// appel de la function testConditions
+if (testConditions() === false){
+  errorSubmit = true
+}
+
+
   // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
   if (errorSubmit == false) {
-
    sessionStorage.setItem("formulaireTermine", true);
-    
-  }
+      }
 
-  
 
 }
 
@@ -283,7 +227,8 @@ function checkEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-// supprime les bulles d'error html5
+
+/*----------supprime les bulles d'error html5-----------------*/
 var forms = document.querySelectorAll("#formulaire");
 forms.forEach((form) => {
   form.addEventListener(
@@ -298,7 +243,7 @@ forms.forEach((form) => {
 
 function launchModalFin() {
   
- 
+ //recupere dans le sessionstorage, envoie le mail des infos saisies
  let fullName = sessionStorage.getItem( "saisiePrenom" );
   let userEmail = sessionStorage.getItem("saisieEmail" );
   
@@ -352,98 +297,133 @@ document.addEventListener("keyup", function (e) {
 /*--------------------------------------------------------- text et color error Prénom-------------------*/
 
 const inputPrenom = document.querySelector("#first");
-inputPrenom.addEventListener("change", function (e) {
-  testPrenom(e.target);
-});
-function testPrenom(noeudHtml) {
-  var value = noeudHtml.value;
-  var elementHtml = noeudHtml;
+inputPrenom.addEventListener("change",testPrenom);
+
+
+function testPrenom() {
+  const elementHtml= document.querySelector("#first")
+  var value = elementHtml.value;
+  
+  var resultatTest = false;
+
   if (value == "" || value.length <= 2) {
-    elementHtml.style.border = "red 2px solid";
+      elementHtml.style.border = "red 2px solid";
 
     const errorPrenom = document.querySelector("#errorPrenom");
     errorPrenom.style.visibility = "visible";
   } else {
+    resultatTest = true;
     elementHtml.style.border = "red 0px solid";
     supprimeError("#errorPrenom");
   }
+  return resultatTest;
 }
 
 /*---------------------------------------------------------text et color error Nom -------------------------*/
 const inputNom = document.querySelector("#last");
-inputNom.addEventListener("change", function (e) {
-  testNom(e.target);
-});
+inputNom.addEventListener("change",testNom);
 
-function testNom(noeudHtml) {
-  var value = noeudHtml.value;
-  var elementHtml = noeudHtml;
+function testNom() {
+  const elementHtml = document.querySelector("#last")
+  var value = elementHtml.value;
+ 
+  var resultatTest = false;
+
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = "red 2px solid";
     const errorNom = document.querySelector("#errorNom");
     errorNom.style.visibility = "visible";
   } else {
+    resultatTest = true;
     elementHtml.style.border = "red 0px solid";
     supprimeError("#errorNom");
   }
+  return resultatTest;
 }
 // ----------------------error du mail------------
 const inputMail = document.querySelector("#email");
-inputMail.addEventListener("change", function (e) {
-  testMail(e.target);
-});
-function testMail(noeudHtml) {
-  var value = noeudHtml.value;
-  var elementHtml = noeudHtml;
+inputMail.addEventListener("change",  testMail);
+
+function testMail() {
+  const elementHtml = document.querySelector("#email")
+  var value = elementHtml.value;
+
+  var resultatTest = false;
+
   if (checkEmail(value) == false) {
     elementHtml.style.border = "red 2px solid";
     const errorMail = document.querySelector("#errorEmail");
     errorMail.style.visibility = "visible";
   } else {
+    resultatTest = true;
     elementHtml.style.border = "red 0px solid";
     supprimeError("#errorEmail");
   }
+  return resultatTest;  
 }
 // ----------------------error date de naissance------------
 const inputBirthdate = document.querySelector("#birthdate");
-inputBirthdate.addEventListener("change", function (e) {
-  testBirthdate(e);
-});
+inputBirthdate.addEventListener("change", testBirthdate);
 
-function testBirthdate(event) {
-  var value = event.target.value;
-  var elementHtml = event.target;
-  if (value == "" || value.length <= 2) {
+
+function testBirthdate() {
+    const elementHtml = document.querySelector("#birthdate")
+  var value = elementHtml.value;
+
+  var resultatTest = false;
+
+
+//date du jour
+var today = new Date();
+var dateBirthdate = new Date (value);
+
+
+//condition
+  if (value == "" || value.length <= 2 || dateBirthdate > today) {
     elementHtml.style.border = "red 2px solid";
+    const errorBirthdate = document.querySelector("#errorBirthdate");
+      errorBirthdate.style.visibility = "visible";
   } else {
+    resultatTest = true;
     elementHtml.style.border = "red 0px solid";
     supprimeError("#errorBirthdate");
+    var elementHide = document.querySelector(".hide");
+    elementHide.removeAttribute("required");
   }
+  return resultatTest; 
 }
 //-----------------------error chiffre uniquement nbre de concours---------
-const inputConcours = document.querySelector("#quantity");
-inputConcours.addEventListener("change", function (e) {
-  if (isNaN(inputConcours.value)) {
-    e.target.style.border = "red 2px solid";
+
+function testConcours() {
+  const elementHtml = document.querySelector("#quantity")
+  var value = elementHtml.value;
+ var resultatTest = false;
+
+ if (isNaN(value)) {
+  elementHtml.style.border = "red 2px solid";
     let errorC = document.querySelector("#errorConcours");
     errorC.style.visibility = "visible";
   } else {
-    e.target.style.border = "red 0px solid";
+    resultatTest = true;
+    elementHtml.style.border = "red 0px solid";
     supprimeError("#errorConcours");
   }
-});
+  return resultatTest; 
+}
+  
+ 
+const inputConcours = document.querySelector("#quantity");
+inputConcours.addEventListener("change", testConcours);
+
 
 // ----------------------retire error villes au click------------
 
 const inputVilles = document.querySelectorAll(".checkbox-location");
-inputVilles.forEach((inputVille) =>
-  inputVille.addEventListener("change", function (e) {
-    testVilles(e);
-  })
-);
+inputVilles.forEach((inputVille) =>inputVille.addEventListener("change", testVilles));
 
-function testVilles(event) {
-  
+
+function testVilles() {
+  var resultatTest = false;
   var loc1 = document.querySelector("#location1").checked
   var loc2 = document.querySelector("#location2").checked
   var loc3 = document.querySelector("#location3").checked
@@ -456,25 +436,35 @@ function testVilles(event) {
     var elementVille = document.querySelector(".selectVille");
     elementVille.style.border = "red 0px solid";
     supprimeError("#errorVilles");
+    resultatTest = true;
   } else {
         const selectVille = document.querySelector(".selectVille");
     selectVille.style.border = "red 2px solid";
     let errorVilles = document.querySelector("#errorVilles");
     errorVilles.style.visibility = "visible";
   }
+  return resultatTest;
 }
 // ----------------------retire error conditions------------
 
 const inputConditions = document.querySelector("#checkbox1");
-inputConditions.addEventListener("change", function (e) {
-  if (inputConditions.checked) {
-    supprimeError("#errorConditions");
-  } else {
-    inputConditions.style.border = "red 2px solid";
-    var elementConditions = document.querySelector("#errorConditions");
-    elementConditions.style.visibility = "visible";
-  }
-});
+inputConditions.addEventListener("change", testConditions);
+
+function testConditions(){
+  const elementHtml = document.querySelector("#checkbox1")
+  var value = elementHtml.value;
+ var resultatTest = false;
+
+ if (inputConditions.checked) {
+  resultatTest = true;  
+  supprimeError("#errorConditions");
+} else {
+  inputConditions.style.border = "red 2px solid";
+  var elementConditions = document.querySelector("#errorConditions");
+  elementConditions.style.visibility = "visible";
+}
+return resultatTest;
+}
 
 // ----------------------Function supprime error------------
 
