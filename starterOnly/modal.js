@@ -1,7 +1,7 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive";
+    x.className += " responsive"; // ajouter la class responsive a la class existante
   } else {
     x.className = "topnav";
   }
@@ -25,7 +25,6 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 //tous les elements de classe .formData du formulaire (champs)
 const formData = document.querySelectorAll(".formData");
 
-/*---------------issue 1--------------------------*/
 
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanClose = document.querySelectorAll(".close");
