@@ -5,29 +5,30 @@
 //couleur de l'erreur
 const colorError = "#fe142f"; 
 
-/*----------Variables globales - noeuds Html recuperés & ajout des evenements sur les ecouteurs------------*/
+/*----------Variables globales - noeuds Html recuperés & ajout d'un ecouteur d'evenements sur le noeudHTml------------*/
 //Activer le btn c'est parti
 var subValid = document.querySelector(".btn-submit");
 subValid.addEventListener("click", submitValid)
 
 //l'ensemble du formulaire (la page du formulaire)
-const modalbg = document.querySelector(".bground"); // permet de recuperer l'element de la class .bground
+const modalbg = document.querySelector(".bground"); 
 
 //btn je m'inscris
 const modalBtn = document.querySelectorAll(".modal-btn");
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); 
 
-//Récupere tous les elements de classe .formData du formulaire (champs)
+//Récupere tous les elements de classe .formData du formulaire (champs) ********************************************************
 const formData = document.querySelectorAll(".formData");
 
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanCloses = document.querySelectorAll(".close");
 spanCloses.forEach((spanClose) => spanClose.addEventListener("click", closeModal));
 
-// launch modal event  (charger l'evement modal au niveau du btn)
+// Ferme la modal de fin
 const spanCloseFins = document.querySelectorAll(".closeFin");
 spanCloseFins.forEach((spanCloseFin) => spanCloseFin.addEventListener("click", closeModalFin));
 
+// declenche les fonctions tests sur l'evenement "change" posé sur le noeudHtml qui a l'ID
 const inputPrenom = document.querySelector("#first");
 inputPrenom.addEventListener("change",testPrenom);
 
@@ -62,7 +63,7 @@ forms.forEach((form) => {form.addEventListener("invalid", function (e) {
   );
 });
 
-// fermeture du formulaire avec echap et validation avec entrée
+// Ajoute l'evenement au moment ou la touche se releve  qui declenche la fermeture du formulaire avec echap et validation avec entrée
 document.addEventListener("keyup", function (e) {
   if (e.keyCode == 27) {
     closeModal();
@@ -82,11 +83,6 @@ if (sessionStorage.getItem("formulaireTermine")) {
 /*------------------------------------------------------------------------*/
 /*----------------------------Fonctions - gestion tests-------------------*/
 /*------------------------------------------------------------------------*/
-// fonction de test validité de l'email (regex = expression reguliere)
-function checkEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(email);
-}
 
 
 // fonction de test validité de du prenom & affichage de l'erreur si necessaire
@@ -145,6 +141,11 @@ function testMail() {
     supprimeError("#errorEmail");
   }
   return resultatTest;  
+}
+// fonction de test validité de l'email (regex = expression reguliere)
+function checkEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
 }
 
 // fonction de test validité du Birthdate & affichage de l'erreur si necessaire
@@ -240,17 +241,15 @@ return resultatTest;
 /*------------------Fonctions - Validation du formulaire------------------*/
 /*------------------------------------------------------------------------*/
 function submitValid() {
-  // Pour créer la session storage
+  // Enregistrement d'autoSave dans la session storage
   sessionStorage.setItem("autosave", true);
 
   let errorSubmit = false;
-  //couleur de l'erreur
-  const colorError = "#fe142f";
-
+  
   /*-----------------Déclaration de la variable saisiePrénom------------------*/
   var saisiePrenom = document.getElementById("first").value;
 
-  // permet de garder les éléments ecris par l'utilisateur
+  // permet d'enregistrer les éléments ecrits par l'utilisateur
   sessionStorage.setItem("saisiePrenom", saisiePrenom);
 
   // appel de la function testPrenom
@@ -258,10 +257,10 @@ function submitValid() {
    errorSubmit = true
  }
 
-  /*---------------Déclaration de la variable saisieNom--------------------------- */
+  /*---------------Déclaration de la variable saisieNom------------------------ */
   var saisieNom = document.getElementById("last").value;
 
-  // storage et modification de couleur si error
+  // permet d'enregistrer les éléments ecrits par l'utilisateur
   sessionStorage.setItem("saisieNom", saisieNom);
  
   // appel de la function testNom
@@ -271,9 +270,8 @@ function submitValid() {
   
 
   /*-----------------validation de l'adresse e-mail-------------------------------*/
-
-  // storage et modification de couleur si error
   var saisieEmail = document.getElementById("email").value;
+  // permet d'enregistrer les éléments ecrits par l'utilisateur
   sessionStorage.setItem("saisieEmail", saisieEmail);
 // appel de la function testMail
 if (testMail() === false){
@@ -281,11 +279,8 @@ if (testMail() === false){
 }
 
 /*------------------------validation birthdate--------------------------------*/
-  
-  
-  //Déclaration de la varaible saisieBirthdate
-  var saisieBirthdate = document.getElementById("birthdate").value;
-  //storage
+    var saisieBirthdate = document.getElementById("birthdate").value;
+ // permet d'enregistrer les éléments ecrits par l'utilisateur
   sessionStorage.setItem("saisieBirthdate", saisieBirthdate);
 
 // appel de la function testBirthdate
@@ -294,9 +289,8 @@ if (testBirthdate() === false){
 }
 
   /* -------------------validation du nombre de concours---------------------------*/
-  //Déclaration de la varaible saisieConcours
-  var saisieConcours = document.getElementById("quantity").value;
-  //storage
+   var saisieConcours = document.getElementById("quantity").value;
+ // permet d'enregistrer les éléments ecrits par l'utilisateur
   sessionStorage.setItem("saisieConcours", saisieConcours);
 
   // appel de la function testConcours
@@ -305,7 +299,7 @@ if (testConcours() === false){
 }
   /*----------------------------------validation du check sur les villes-----------*/
   
-  //storage du choix des villes
+  // permet d'enregistrer les éléments cochés par l'utilisateur
   sessionStorage.setItem(
     "saisieVille1",
     document.querySelector("#location1").checked
@@ -335,11 +329,10 @@ if (testVilles() === false){
   errorSubmit = true
 }
   
-
-  
+ 
   /*-------------------------- conditions submit -----------------------------------------------*/
   const inputConditions = document.querySelector("#checkbox1");
-
+// permet d'enregistrer les éléments cochés par l'utilisateur
 sessionStorage.setItem("checkConditions", inputConditions.checked)
 sessionStorage.setItem("checkConditions2", document.querySelector("#checkbox2").checked)
 
@@ -349,8 +342,8 @@ if (testConditions() === false){
 }
 
 
-  // Effacer le formulaire si celui ci est correct et affiche le message de prise en compte
-  if (errorSubmit == false) {
+  // si pas d'erreur enregistre *******************************************************************************************************************
+  if (errorSubmit === false) {
    sessionStorage.setItem("formulaireTermine", true);
       }
 
@@ -361,17 +354,17 @@ if (testConditions() === false){
 /*------------------------------------------------------------------------*/
 /*---------Fonctions - gestion ouverture & fermeture des modals-----------*/
 /*------------------------------------------------------------------------*/
-// close modal form
+// Ferme le formulaire
 function closeModal() {
   modalbg.style.display = "none";
 }
-
+//Affiche le formulaire & recupere les informations a mettre dans le formulaire
 function launchModal() {
-  modalbg.style.display = "block"; // prend la class bgroung et modifit le style et plus particulierement le display en none dans le fichier css
+  modalbg.style.display = "block"; 
 
   /*---------------------Autosave storage-----------------------------------------*/
 
-  // test l'existance d'une session storage
+  // si autoSave est recuperé dans session storage
   if (sessionStorage.getItem("autosave")) {
     //remplir le champs prénom avec la valeur de "saisiePrenom" enregistrée dans sessionStorage
     document.querySelector("#first").value = sessionStorage.getItem(
@@ -411,6 +404,7 @@ function launchModal() {
     document.querySelector("#location6").checked === sessionStorage.getItem(
       "saisieVille6"
     );
+    //appels des fonctions tests pour tester la validité et affiche le message d'erreur si invalide
     testPrenom()
     testNom()
     testMail()
@@ -423,7 +417,7 @@ function launchModal() {
 
 function launchModalFin() {
   
-  //recupere dans le sessionstorage, envoie le mail des infos saisies
+  //recupere les informations dans le sessionstorage & envoie le mail des infos saisies
   let fullName = sessionStorage.getItem( "saisiePrenom" );
    let userEmail = sessionStorage.getItem("saisieEmail" );
    
@@ -440,13 +434,14 @@ function launchModalFin() {
      emailjs.init("user_7tR9LJzR8U8F0vQka347x");
     
    emailjs.send("service_ahy6xbq", "template_ylvldvg", contactParams)
+   //supprime la session storage
    sessionStorage.clear();
-   
+   //affiche la modal de fin
    const modalbgFin = document.querySelector("#bgroundFin");
    modalbgFin.style.display = "flex";
  }
 
-// close modal form
+// Fermle la modal de fin
 function closeModalFin() {
   const modalbgFin = document.querySelector("#bgroundFin");
   modalbgFin.style.display = "none";
@@ -459,7 +454,8 @@ function closeModalFin() {
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
-    x.className += " responsive"; // ajouter la class responsive a la class existante
+    // ajouter la class responsive a la class existante
+    x.className += " responsive"; 
   } else {
     x.className = "topnav";
   }
