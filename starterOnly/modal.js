@@ -95,8 +95,7 @@ function testPrenom() {
   if (value == "" || value.length <= 2) {
       elementHtml.style.border = "red 2px solid";
 
-    const errorPrenom = document.querySelector("#errorPrenom");
-    errorPrenom.style.visibility = "visible";
+      afficheError("#errorPrenom");   
   } else {
     resultatTest = true;
     elementHtml.style.border = "red 0px solid";
@@ -114,8 +113,7 @@ function testNom() {
 
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = "red 2px solid";
-    const errorNom = document.querySelector("#errorNom");
-    errorNom.style.visibility = "visible";
+    afficheError("#errorNom");
   } else {
     resultatTest = true;
     elementHtml.style.border = "red 0px solid";
@@ -133,8 +131,7 @@ function testMail() {
 
   if (checkEmail(value) == false) {
     elementHtml.style.border = "red 2px solid";
-    const errorMail = document.querySelector("#errorEmail");
-    errorMail.style.visibility = "visible";
+    afficheError("#errorEmail");
   } else {
     resultatTest = true;
     elementHtml.style.border = "red 0px solid";
@@ -164,8 +161,7 @@ var dateBirthdate = new Date (value);
 //condition
   if (value == "" || value.length <= 2 || dateBirthdate > today) {
     elementHtml.style.border = "red 2px solid";
-    const errorBirthdate = document.querySelector("#errorBirthdate");
-      errorBirthdate.style.visibility = "visible";
+    afficheError("#errorBirthdate");
   } else {
     resultatTest = true;
     elementHtml.style.border = "red 0px solid";
@@ -184,8 +180,7 @@ function testConcours() {
 
  if (isNaN(value)) {
   elementHtml.style.border = "red 2px solid";
-    let errorC = document.querySelector("#errorConcours");
-    errorC.style.visibility = "visible";
+  afficheError("#errorConcours"); 
   } else {
     resultatTest = true;
     elementHtml.style.border = "red 0px solid";
@@ -213,8 +208,7 @@ function testVilles() {
   } else {
         const selectVille = document.querySelector(".selectVille");
     selectVille.style.border = "red 2px solid";
-    let errorVilles = document.querySelector("#errorVilles");
-    errorVilles.style.visibility = "visible";
+    afficheError("#errorVilles"); 
   }
   return resultatTest;
 }
@@ -230,8 +224,7 @@ function testConditions(){
   supprimeError("#errorConditions");
 } else {
   inputConditions.style.border = "red 2px solid";
-  var elementConditions = document.querySelector("#errorConditions");
-  elementConditions.style.visibility = "visible";
+  afficheError("#errorConditions"); 
 }
 return resultatTest;
 }
@@ -433,7 +426,7 @@ function launchModalFin() {
    
      emailjs.init("user_7tR9LJzR8U8F0vQka347x");
     
-   emailjs.send("service_ahy6xbq", "template_ylvldvg", contactParams)
+  //  emailjs.send("service_ahy6xbq", "template_ylvldvg", contactParams)
    //supprime la session storage
    sessionStorage.clear();
    //affiche la modal de fin
@@ -466,4 +459,7 @@ function supprimeError(errorId) {
   elementError.style.visibility = "hidden";
 }
 
-
+function afficheError(errorId){
+  const elementError = document.querySelector(errorId);
+  elementError.style.visibility = "visible";
+}
