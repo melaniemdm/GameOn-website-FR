@@ -17,8 +17,6 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); 
 
-//Récupere tous les elements de classe .formData du formulaire (champs) ********************************************************
-const formData = document.querySelectorAll(".formData");
 
 // création de la constante spanClose pour fermer la modale (Todo 1)
 const spanCloses = document.querySelectorAll(".close");
@@ -55,9 +53,10 @@ inputConditions.addEventListener("change", testConditions);
 /*------------------------------------------------------------------------*/
 
 /*----------supprime les bulles d'error html5-----------------*/
-var forms = document.querySelectorAll("#formulaire");
-forms.forEach((form) => {form.addEventListener("invalid", function (e) {
-      e.preventDefault();  
+//Récupere tous les elements de classe .formData du formulaire (champs) 
+const formData = document.querySelectorAll(".formData");
+formData.forEach((form) => {form.addEventListener("invalid", function (e) {
+      e.preventDefault(); //prevent default retire l'affichage de l'infobulle d'erreur  
     },
     true
   );
@@ -76,7 +75,7 @@ document.addEventListener("keyup", function (e) {
 });
 
 //affiche au chargement de la page launchModalFin si le formulaire a ete rempli precedemment
-if (sessionStorage.getItem("formulaireTermine")) {
+if (sessionStorage.getItem("formulaireTermine") ) {
    launchModalFin();
 }
 
@@ -237,7 +236,7 @@ function submitValid() {
   // Enregistrement d'autoSave dans la session storage
   sessionStorage.setItem("autosave", true);
 
-  let errorSubmit = false;
+  let formulaireValid = true;
   
   /*-----------------Déclaration de la variable saisiePrénom------------------*/
   var saisiePrenom = document.getElementById("first").value;
@@ -247,7 +246,7 @@ function submitValid() {
 
   // appel de la function testPrenom
  if (testPrenom() === false){
-   errorSubmit = true
+   formulaireValid = false
  }
 
   /*---------------Déclaration de la variable saisieNom------------------------ */
@@ -258,7 +257,7 @@ function submitValid() {
  
   // appel de la function testNom
  if (testNom() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
   
 
@@ -268,7 +267,7 @@ function submitValid() {
   sessionStorage.setItem("saisieEmail", saisieEmail);
 // appel de la function testMail
 if (testMail() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
 
 /*------------------------validation birthdate--------------------------------*/
@@ -278,7 +277,7 @@ if (testMail() === false){
 
 // appel de la function testBirthdate
 if (testBirthdate() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
 
   /* -------------------validation du nombre de concours---------------------------*/
@@ -288,14 +287,12 @@ if (testBirthdate() === false){
 
   // appel de la function testConcours
 if (testConcours() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
   /*----------------------------------validation du check sur les villes-----------*/
   
   // permet d'enregistrer les éléments cochés par l'utilisateur
-  sessionStorage.setItem(
-    "saisieVille1",
-    document.querySelector("#location1").checked
+  sessionStorage.setItem(    "saisieVille1",    document.querySelector("#location1").checked
   );
   sessionStorage.setItem(
     "saisieVille2",
@@ -319,7 +316,7 @@ if (testConcours() === false){
   );
 // appel de la function testVilles
 if (testVilles() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
   
  
@@ -331,12 +328,12 @@ sessionStorage.setItem("checkConditions2", document.querySelector("#checkbox2").
 
 // appel de la function testConditions
 if (testConditions() === false){
-  errorSubmit = true
+  formulaireValid = false
 }
 
 
-  // si pas d'erreur enregistre *******************************************************************************************************************
-  if (errorSubmit === false) {
+  // si pas d'erreur enregistre 
+  if (formulaireValid === true) {
    sessionStorage.setItem("formulaireTermine", true);
       }
 
