@@ -233,8 +233,8 @@ return resultatTest;
 /*------------------Fonctions - Validation du formulaire------------------*/
 /*------------------------------------------------------------------------*/
 function submitValid() {
-  // Enregistrement d'autoSave dans la session storage
-  sessionStorage.setItem("autosave", true);
+  // Enregistrement donneesSauvees dans la session storage
+  sessionStorage.setItem("donneesSauvees", true);
 
   let formulaireValid = true;
   
@@ -352,10 +352,10 @@ function closeModal() {
 function launchModal() {
   modalbg.style.display = "block"; 
 
-  /*---------------------Autosave storage-----------------------------------------*/
+  /*---------------------donneesSauvees storage-----------------------------------------*/
 
-  // si autoSave est recuperé dans session storage
-  if (sessionStorage.getItem("autosave")) {
+  // si donneesSauvees est recuperé dans session storage
+  if (sessionStorage.getItem("donneesSauvees")) {
     //remplir le champs prénom avec la valeur de "saisiePrenom" enregistrée dans sessionStorage
     document.querySelector("#first").value = sessionStorage.getItem(
       "saisiePrenom"
