@@ -223,11 +223,11 @@ function testConditions() {
   var value = elementHtml.value;
   var resultatTest = false;
 
-  if (inputConditions.checked) {
+  if (value) {
     resultatTest = true;
     supprimeError("#errorConditions");
   } else {
-    inputConditions.style.border = "red 2px solid";
+    elementHtml.style.border = "red 2px solid";
     afficheError("#errorConditions");
   }
   return resultatTest;
