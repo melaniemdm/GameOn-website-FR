@@ -225,10 +225,10 @@ function testVilles() {
 
 // fonction de test validité du Conditions & affichage de l'erreur si necessaire
 function testConditions() {
+   var resultatTest = false;
   const elementHtml = document.querySelector("#checkbox1");
-  var value = elementHtml.value;
-  var resultatTest = false;
-
+  var value = elementHtml.checked;
+ 
   if (value) {
     resultatTest = true;
     supprimeError("#errorConditions");
