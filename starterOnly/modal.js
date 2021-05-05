@@ -1,3 +1,13 @@
+
+/*------------------------------------------------------------------------*/
+/*----------Test systematique au chargement------------*/
+/*------------------------------------------------------------------------*/
+//affiche au chargement de la page launchModalFin si le formulaire a ete rempli precedemment
+if (sessionStorage.getItem("formulaireTermine")) {
+  launchModalFin();
+}
+
+
 /*------------------------------------------------------------------------*/
 /*----------Variables globales (existent partout dans le code)------------*/
 /*------------------------------------------------------------------------*/
@@ -82,10 +92,6 @@ document.addEventListener("keyup", function (e) {
   }
 });
 
-//affiche au chargement de la page launchModalFin si le formulaire a ete rempli precedemment
-if (sessionStorage.getItem("formulaireTermine")) {
-  launchModalFin();
-}
 
 /*------------------------------------------------------------------------*/
 /*----------------------------Fonctions - gestion tests-------------------*/
@@ -99,12 +105,12 @@ function testPrenom() {
   var resultatTest = false;
 
   if (value == "" || value.length <= 2) {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
 
     afficheError("#errorPrenom");
   } else {
     resultatTest = true;
-    elementHtml.style.border = "red 0px solid";
+    elementHtml.style.border = colorError + " 0px solid";
     supprimeError("#errorPrenom");
   }
   return resultatTest;
@@ -118,11 +124,11 @@ function testNom() {
   var resultatTest = false;
 
   if (value == "" || value.length <= 2) {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
     afficheError("#errorNom");
   } else {
     resultatTest = true;
-    elementHtml.style.border = "red 0px solid";
+    elementHtml.style.border = colorError + " 0px solid";
     supprimeError("#errorNom");
   }
   return resultatTest;
@@ -136,11 +142,11 @@ function testMail() {
   var resultatTest = false;
 
   if (checkEmail(value) == false) {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
     afficheError("#errorEmail");
   } else {
     resultatTest = true;
-    elementHtml.style.border = "red 0px solid";
+    elementHtml.style.border = colorError + " 0px solid";
     supprimeError("#errorEmail");
   }
   return resultatTest;
@@ -164,11 +170,11 @@ function testBirthdate() {
 
   //condition
   if (value == "" || value.length <= 2 || dateBirthdate > today) {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
     afficheError("#errorBirthdate");
   } else {
     resultatTest = true;
-    elementHtml.style.border = "red 0px solid";
+    elementHtml.style.border = colorError + " 0px solid";
     supprimeError("#errorBirthdate");
     var elementHide = document.querySelector(".hide");
     elementHide.removeAttribute("required");
@@ -183,11 +189,11 @@ function testConcours() {
   var resultatTest = false;
 
   if (isNaN(value)) {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
     afficheError("#errorConcours");
   } else {
     resultatTest = true;
-    elementHtml.style.border = "red 0px solid";
+    elementHtml.style.border = colorError + " 0px solid";
     supprimeError("#errorConcours");
   }
   return resultatTest;
@@ -206,12 +212,12 @@ function testVilles() {
   if (loc1 || loc2 || loc3 || loc4 || loc5 || loc6) {
     //Déclaration de la variable elementVille
     var elementVille = document.querySelector(".selectVille");
-    elementVille.style.border = "red 0px solid";
+    elementVille.style.border = colorError + " 0px solid";
     supprimeError("#errorVilles");
     resultatTest = true;
   } else {
     const selectVille = document.querySelector(".selectVille");
-    selectVille.style.border = "red 2px solid";
+    selectVille.style.border = colorError + " 2px solid";
     afficheError("#errorVilles");
   }
   return resultatTest;
@@ -227,7 +233,7 @@ function testConditions() {
     resultatTest = true;
     supprimeError("#errorConditions");
   } else {
-    elementHtml.style.border = "red 2px solid";
+    elementHtml.style.border = colorError + " 2px solid";
     afficheError("#errorConditions");
   }
   return resultatTest;
