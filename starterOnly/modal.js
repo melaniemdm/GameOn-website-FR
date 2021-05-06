@@ -96,10 +96,9 @@ document.addEventListener("keyup", function (e) {
 /*------------------------------------------------------------------------*/
 /*----------------------------Fonctions - gestion tests-------------------*/
 /*------------------------------------------------------------------------*/
-
-// fonction de test validité de du prenom & affichage de l'erreur si necessaire
-function testPrenom() {
-  const elementHtml = document.querySelector("#first");
+//function test nom - prenom
+function testTexte(textID, errorId){
+  const elementHtml = document.querySelector(textID);
   var value = elementHtml.value;
 
   var resultatTest = false;
@@ -107,31 +106,22 @@ function testPrenom() {
   if (value == "" || value.length <= 2) {
     elementHtml.style.border = colorError + " 2px solid";
 
-    afficheError("#errorPrenom");
+    afficheError(errorId);
   } else {
     resultatTest = true;
     elementHtml.style.border = colorError + " 0px solid";
-    supprimeError("#errorPrenom");
+    supprimeError(errorId);
   }
   return resultatTest;
+}
+// fonction de test validité de du prenom & affichage de l'erreur si necessaire
+function testPrenom() {
+   return testTexte("#first","#errorPrenom");
 }
 
 // fonction de test validité du nom & affichage de l'erreur si necessaire
 function testNom() {
-  const elementHtml = document.querySelector("#last");
-  var value = elementHtml.value;
-
-  var resultatTest = false;
-
-  if (value == "" || value.length <= 2) {
-    elementHtml.style.border = colorError + " 2px solid";
-    afficheError("#errorNom");
-  } else {
-    resultatTest = true;
-    elementHtml.style.border = colorError + " 0px solid";
-    supprimeError("#errorNom");
-  }
-  return resultatTest;
+    return testTexte("#first","#errorNom");
 }
 
 // fonction de test validité du mail & affichage de l'erreur si necessaire
